@@ -7,19 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */; };
+		9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */; };
+		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
+		9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */; };
 		9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2102842DB9000F5319F /* WorkyApp.swift */; };
-		9F65A2132842DB9000F5319F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* ContentView.swift */; };
+		9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */; };
 		9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 		9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2172842DB9200F5319F /* Preview Assets.xcassets */; };
+		9F65A2212845608D00F5319F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2202845608D00F5319F /* Workspace.swift */; };
+		9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F744C2F284D21550049AE08 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenu.swift; sourceTree = "<group>"; };
+		9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenuDelegate.swift; sourceTree = "<group>"; };
+		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
+		9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToggleDesktopVisibility.scpt; sourceTree = "<group>"; };
 		9F65A20D2842DB9000F5319F /* Worky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F65A2102842DB9000F5319F /* WorkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyApp.swift; sourceTree = "<group>"; };
-		9F65A2122842DB9000F5319F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceView.swift; sourceTree = "<group>"; };
 		9F65A2142842DB9200F5319F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F65A2172842DB9200F5319F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9F65A2192842DB9200F5319F /* Worky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Worky.entitlements; sourceTree = "<group>"; };
+		9F65A21F28431B3000F5319F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9F65A2202845608D00F5319F /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
+		9F744C2F284D21550049AE08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F294B362878CA9900D8C025 /* Status Item */ = {
+			isa = PBXGroup;
+			children = (
+				9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */,
+				9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */,
+			);
+			path = "Status Item";
+			sourceTree = "<group>";
+		};
+		9F294B422879049400D8C025 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9F65A2042842DB9000F5319F = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +83,14 @@
 			isa = PBXGroup;
 			children = (
 				9F65A2102842DB9000F5319F /* WorkyApp.swift */,
-				9F65A2122842DB9000F5319F /* ContentView.swift */,
+				9F744C2F284D21550049AE08 /* AppDelegate.swift */,
+				9F294B362878CA9900D8C025 /* Status Item */,
+				9F65A22928456F2000F5319F /* Model */,
+				9F65A22828456F1400F5319F /* View */,
+				9F294B422879049400D8C025 /* Resources */,
 				9F65A2142842DB9200F5319F /* Assets.xcassets */,
 				9F65A2192842DB9200F5319F /* Worky.entitlements */,
+				9F65A21F28431B3000F5319F /* Info.plist */,
 				9F65A2162842DB9200F5319F /* Preview Content */,
 			);
 			path = Worky;
@@ -67,6 +102,23 @@
 				9F65A2172842DB9200F5319F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9F65A22828456F1400F5319F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9F65A22928456F2000F5319F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F65A2202845608D00F5319F /* Workspace.swift */,
+				9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */,
 				9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */,
 				9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */,
 			);
@@ -139,8 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F65A2132842DB9000F5319F /* ContentView.swift in Sources */,
+				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
+				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
+				9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */,
+				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
+				9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */,
+				9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +330,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Worky/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,6 +356,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Worky/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
