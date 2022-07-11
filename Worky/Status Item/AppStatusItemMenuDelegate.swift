@@ -33,6 +33,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         
         menu.addItem(
             withTitle: "Toggle desktop visibility",
+            action: #selector(toggleDesktop),
             keyEquivalent: ""
         ).target = self
         
