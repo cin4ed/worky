@@ -18,8 +18,6 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     
     override private init() {}
     
-    // Helper property used to store the create new workspace window
-    static var newWorkspaceWindow: NSWindow?
     
     // MARK: Menu items
     func menuWillOpen(_ menu: NSMenu) {
@@ -111,31 +109,9 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         print("Workspace deleted: \(workspace.title)")
     }
 
-    // MARK: New workspace
+    // MARK: Create workspace
     @objc func addNewWorkspace() {
-
-        // Crete a window to display a form to the user
-        let window = NSPanel(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .fullSizeContentView],
-            backing: .buffered,
-            defer: false
-        )
-        
-        // Style the window and add the hosting view for the SwiftUI view
-        window.titleVisibility = .hidden
-        window.titlebarAppearsTransparent = true
-        window.contentView = NSHostingView(rootView: CreateWorkspaceView())
-        
-        // Configure the delegate
-        let delegate = WindowDelegate()
-        window.delegate = delegate
-        
-        // Use the helper static property of this class to store the window
-        // (needs to be stored in some place)
-        AppStatusItemMenuDelegate.newWorkspaceWindow = window
-        
-        NSApp.runModal(for: window)
+        CreateWorkspaceWindow.shared.bringToFront()
     }
 
     // MARK: Hide desktop
@@ -146,17 +122,5 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     // MARK: Quit appplication
     @objc func quitApp() {
         NSApp.terminate(self)
-    }
-}
-
-extension AppStatusItemMenuDelegate {
-    func copy(with zone: NSZone? = nil) -> Any {
-        return self
-    }
-}
-
-class WindowDelegate: NSObject, NSWindowDelegate {
-    func windowWillClose(_ notification: Notification) {
-        NSApp.stopModal()
     }
 }
