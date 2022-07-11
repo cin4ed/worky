@@ -11,6 +11,7 @@
 		9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */; };
 		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
 		9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */; };
+		9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */; };
 		9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2102842DB9000F5319F /* WorkyApp.swift */; };
 		9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */; };
 		9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenuDelegate.swift; sourceTree = "<group>"; };
 		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
 		9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToggleDesktopVisibility.scpt; sourceTree = "<group>"; };
+		9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceWindow.swift; sourceTree = "<group>"; };
 		9F65A20D2842DB9000F5319F /* Worky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F65A2102842DB9000F5319F /* WorkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyApp.swift; sourceTree = "<group>"; };
 		9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				9F65A2202845608D00F5319F /* Workspace.swift */,
 				9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */,
+				9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
+				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
 				9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */,
