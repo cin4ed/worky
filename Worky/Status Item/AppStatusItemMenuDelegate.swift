@@ -11,13 +11,9 @@ import SwiftUI
 
 class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     
-    static var shared: AppStatusItemMenuDelegate = {
-        let instance = AppStatusItemMenuDelegate()
-        return instance
-    }()
+    static var shared = AppStatusItemMenuDelegate()
     
     override private init() {}
-    
     
     // MARK: Menu items
     func menuWillOpen(_ menu: NSMenu) {
@@ -36,8 +32,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         ).target = self
         
         menu.addItem(
-            withTitle: "Toggle desktop",
-            action: #selector(hideDesktop),
+            withTitle: "Toggle desktop visibility",
             keyEquivalent: ""
         ).target = self
         
@@ -97,14 +92,12 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     
     // MARK: Choose workspace
     @objc func chooseWorkspace(sender: NSMenuItem) {
-        
         let workspace = sender.representedObject as! Workspace;
         Workspace.selectWorkspace(workspace)
     }
     
     // MARK: Delete workspace
     @objc func deleteWorkspace(sender: NSMenuItem) {
-        
         let workspace = sender.representedObject as! Workspace;
         print("Workspace deleted: \(workspace.title)")
     }
@@ -115,7 +108,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     }
 
     // MARK: Hide desktop
-    @objc func hideDesktop() {
+    @objc func toggleDesktop() {
         AppleScriptExecutor.toggleDesktopVisibility()
     }
     
