@@ -39,21 +39,22 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         
         menu.addItem(.separator())
         
-        menu.addItem(
-            withTitle: "Choose a workspace",
-            action: nil,
-            keyEquivalent: ""
-        )
-        
         let workspaces = Workspace.getWorkspaces()
             
         if workspaces.count > 0 {
+            menu.addItem(
+                withTitle: "Choose a workspace",
+                action: nil,
+                keyEquivalent: ""
+            )
+            
             for workspace in workspaces {
                 let item = menu.addItem(
-                    withTitle: workspace.title,
+                    withTitle: "\(workspace.emoji) \(workspace.title)",
                     action: #selector(chooseWorkspace),
                     keyEquivalent: ""
                 )
+                item.representedObject = workspace
                 item.target = self
             }
         } else {
@@ -69,7 +70,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
             let workspace = WorkyApp.currentWorkspace!
             
             let menuItem = menu.addItem(
-                withTitle: workspace.title,
+                withTitle: "\(workspace.emoji) \(workspace.title)",
                 action: nil,
                 keyEquivalent: "")
             
