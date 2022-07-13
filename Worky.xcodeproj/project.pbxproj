@@ -12,13 +12,29 @@
 		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
 		9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */; };
 		9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */; };
+		9F294B54287CD83D00D8C025 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B53287CD83D00D8C025 /* String.swift */; };
+		9F294B5C287D16B300D8C025 /* WorkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B5B287D16B300D8C025 /* WorkyTests.swift */; };
+		9F294B63287E6B5100D8C025 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B62287E6B5100D8C025 /* emoji.json */; };
+		9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B64287E6C0B00D8C025 /* Emoji.swift */; };
 		9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2102842DB9000F5319F /* WorkyApp.swift */; };
 		9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */; };
 		9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 		9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2172842DB9200F5319F /* Preview Assets.xcassets */; };
 		9F65A2212845608D00F5319F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2202845608D00F5319F /* Workspace.swift */; };
 		9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F744C2F284D21550049AE08 /* AppDelegate.swift */; };
+		9F8C7423287F41FA004F4C00 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */; };
+		9F8C7425287F42C3004F4C00 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7424287F42C3004F4C00 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F294B5D287D16B300D8C025 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F65A2052842DB9000F5319F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F65A20C2842DB9000F5319F;
+			remoteInfo = Worky;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenu.swift; sourceTree = "<group>"; };
@@ -26,6 +42,11 @@
 		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
 		9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToggleDesktopVisibility.scpt; sourceTree = "<group>"; };
 		9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceWindow.swift; sourceTree = "<group>"; };
+		9F294B53287CD83D00D8C025 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9F294B59287D16B300D8C025 /* WorkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F294B5B287D16B300D8C025 /* WorkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyTests.swift; sourceTree = "<group>"; };
+		9F294B62287E6B5100D8C025 /* emoji.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
+		9F294B64287E6C0B00D8C025 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		9F65A20D2842DB9000F5319F /* Worky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F65A2102842DB9000F5319F /* WorkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyApp.swift; sourceTree = "<group>"; };
 		9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceView.swift; sourceTree = "<group>"; };
@@ -35,9 +56,18 @@
 		9F65A21F28431B3000F5319F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9F65A2202845608D00F5319F /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		9F744C2F284D21550049AE08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		9F8C7424287F42C3004F4C00 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9F294B56287D16B300D8C025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F65A20A2842DB9000F5319F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,14 +91,32 @@
 			isa = PBXGroup;
 			children = (
 				9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */,
+				9F294B62287E6B5100D8C025 /* emoji.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9F294B52287CD82A00D8C025 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F294B53287CD83D00D8C025 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9F294B5A287D16B300D8C025 /* WorkyTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F294B5B287D16B300D8C025 /* WorkyTests.swift */,
+			);
+			path = WorkyTests;
 			sourceTree = "<group>";
 		};
 		9F65A2042842DB9000F5319F = {
 			isa = PBXGroup;
 			children = (
 				9F65A20F2842DB9000F5319F /* Worky */,
+				9F294B5A287D16B300D8C025 /* WorkyTests */,
 				9F65A20E2842DB9000F5319F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9F65A20D2842DB9000F5319F /* Worky.app */,
+				9F294B59287D16B300D8C025 /* WorkyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */,
+				9F8C7424287F42C3004F4C00 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,16 +167,45 @@
 		9F65A22928456F2000F5319F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F8C7421287F41A5004F4C00 /* Windows */,
+				9F294B52287CD82A00D8C025 /* Extensions */,
 				9F65A2202845608D00F5319F /* Workspace.swift */,
 				9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */,
-				9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */,
+				9F294B64287E6C0B00D8C025 /* Emoji.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9F8C7421287F41A5004F4C00 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */,
+				9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */,
+			);
+			path = Windows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9F294B58287D16B300D8C025 /* WorkyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F294B5F287D16B300D8C025 /* Build configuration list for PBXNativeTarget "WorkyTests" */;
+			buildPhases = (
+				9F294B55287D16B300D8C025 /* Sources */,
+				9F294B56287D16B300D8C025 /* Frameworks */,
+				9F294B57287D16B300D8C025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F294B5E287D16B300D8C025 /* PBXTargetDependency */,
+			);
+			name = WorkyTests;
+			productName = WorkyTests;
+			productReference = 9F294B59287D16B300D8C025 /* WorkyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9F65A20C2842DB9000F5319F /* Worky */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F65A21C2842DB9200F5319F /* Build configuration list for PBXNativeTarget "Worky" */;
@@ -154,6 +233,10 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					9F294B58287D16B300D8C025 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 9F65A20C2842DB9000F5319F;
+					};
 					9F65A20C2842DB9000F5319F = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -173,17 +256,26 @@
 			projectRoot = "";
 			targets = (
 				9F65A20C2842DB9000F5319F /* Worky */,
+				9F294B58287D16B300D8C025 /* WorkyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9F294B57287D16B300D8C025 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F65A20B2842DB9000F5319F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */,
 				9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */,
+				9F294B63287E6B5100D8C025 /* emoji.json in Resources */,
 				9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,16 +283,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9F294B55287D16B300D8C025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F294B5C287D16B300D8C025 /* WorkyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F65A2092842DB9000F5319F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8C7423287F41FA004F4C00 /* SettingsWindow.swift in Sources */,
+				9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */,
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
 				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
+				9F294B54287CD83D00D8C025 /* String.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
 				9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */,
 				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
+				9F8C7425287F42C3004F4C00 /* SettingsView.swift in Sources */,
 				9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */,
 				9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */,
 			);
@@ -208,7 +312,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9F294B5E287D16B300D8C025 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F65A20C2842DB9000F5319F /* Worky */;
+			targetProxy = 9F294B5D287D16B300D8C025 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		9F294B60287D16B300D8C025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.betweenframes.WorkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Worky.app/Contents/MacOS/Worky";
+			};
+			name = Debug;
+		};
+		9F294B61287D16B300D8C025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.betweenframes.WorkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Worky.app/Contents/MacOS/Worky";
+			};
+			name = Release;
+		};
 		9F65A21A2842DB9200F5319F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -377,6 +521,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9F294B5F287D16B300D8C025 /* Build configuration list for PBXNativeTarget "WorkyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F294B60287D16B300D8C025 /* Debug */,
+				9F294B61287D16B300D8C025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9F65A2082842DB9000F5319F /* Build configuration list for PBXProject "Worky" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
