@@ -10,19 +10,22 @@ import Foundation
 struct Workspace: Identifiable, Encodable {
     
     public var title: String
+    public var emoji: String
     public var id: String
     public var url: URL
     
-    init(title: String, url: URL) {
+    init(title: String, emoji: String, url: URL) {
         
         self.title = title
+        self.emoji = emoji
         self.id = UUID().uuidString
         self.url = url
     }
     
-    init(title: String, container: URL) {
+    init(title: String, emoji: String, container: URL) {
         
         self.title = title
+        self.emoji = emoji
         self.id = UUID().uuidString
         self.url = container.appendingPathComponent("\(title)/")
     }
@@ -30,6 +33,7 @@ struct Workspace: Identifiable, Encodable {
     init?(from json: [String: String]) {
         
         self.title = json["title"]!
+        self.emoji = json["emoji"]!
         self.id = json["id"]!
         self.url = URL(string: json["url"]!)!
     }
@@ -41,6 +45,7 @@ struct Workspace: Identifiable, Encodable {
         let jsonParsed = jsonRaw as! [String : String]
         
         self.title = jsonParsed["title"]!
+        self.emoji = jsonParsed["emoji"]!
         self.id = jsonParsed["id"]!
         self.url = URL(string: jsonParsed["url"]!)!
     }
@@ -143,9 +148,11 @@ extension Workspace {
             
             // many assumptions here!!!!
             for URL in desktopContents {
-                try! fm.moveItem(
-                    at: URL,
-                    to: currentWorkspaceURL.appendingPathComponent(URL.lastPathComponent))
+                if !URL.path.contains(".DS_Store") {
+                    try! fm.moveItem(
+                        at: URL,
+                        to: currentWorkspaceURL.appendingPathComponent(URL.lastPathComponent))
+                }
             }
         }
 
@@ -155,7 +162,9 @@ extension Workspace {
         
         workspaceContents.forEach { URL in
             print(URL.path)
-            try! fm.moveItem(at: URL, to: desktopURL.appendingPathComponent(URL.lastPathComponent))
+            if !URL.path.contains(".DS_Store") {
+                try! fm.moveItem(at: URL, to: desktopURL.appendingPathComponent(URL.lastPathComponent))
+            }
         }
         
         WorkyApp.currentWorkspace = workspace
