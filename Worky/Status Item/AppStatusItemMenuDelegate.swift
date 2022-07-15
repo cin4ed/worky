@@ -81,7 +81,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
             
         menu.addItem(
             withTitle: "Settings",
-            action: nil,
+            action: #selector(showSettingsWindow),
             keyEquivalent: ""
         ).target = self
         
@@ -99,9 +99,10 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     }
     
     // MARK: Delete workspace
-    @objc func deleteWorkspace(sender: NSMenuItem) {
-        let workspace = sender.representedObject as! Workspace;
-        print("Workspace deleted: \(workspace.title)")
+    @objc func showSettingsWindow(sender: NSMenuItem) {
+//        let workspace = sender.representedObject as! Workspace;
+//        print("Workspace deleted: \(workspace.title)")
+        SettingsWindow.shared.bringToFront()
     }
 
     // MARK: Create workspace
