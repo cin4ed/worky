@@ -24,6 +24,7 @@
 		9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F744C2F284D21550049AE08 /* AppDelegate.swift */; };
 		9F8C7423287F41FA004F4C00 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */; };
 		9F8C7425287F42C3004F4C00 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7424287F42C3004F4C00 /* SettingsView.swift */; };
+		9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		9F744C2F284D21550049AE08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		9F8C7424287F42C3004F4C00 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */,
 				9F8C7424287F42C3004F4C00 /* SettingsView.swift */,
+				9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F294B54287CD83D00D8C025 /* String.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
+				9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */,
 				9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */,
 				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
 				9F8C7425287F42C3004F4C00 /* SettingsView.swift in Sources */,
