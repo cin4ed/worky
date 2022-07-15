@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    var  workspaces = Workspace.getWorkspaces()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            List {
+                Section {
+                    ForEach(workspaces) { workspace in
+                        WorkspaceListItem(workspace: workspace)
+                    }
+                } header: {
+                    Text("Workspaces")
+                } footer: {
+                    Text("\(workspaces.count) workspaces")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .listStyle(.plain)
+        }
+        .frame(maxWidth: 300)
+        .padding()
     }
 }
 
