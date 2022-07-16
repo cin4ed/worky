@@ -57,7 +57,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
                 item.representedObject = workspace
                 item.target = self
             }
-        } else {
+        } else if WorkyApp.currentWorkspace == nil {
             menu.addItem(
                 withTitle: "No workspaces available",
                 action: nil,
