@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .appStatusBar
             .statusItem(withLength: NSStatusItem.squareLength)
         
+        // Change this for the app icon
         AppDelegate.appStatusItem.button!.title = "📦"
         
         AppDelegate.appStatusItemMenu = AppStatusItemMenu()
