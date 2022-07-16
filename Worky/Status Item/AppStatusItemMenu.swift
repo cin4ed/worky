@@ -19,5 +19,3 @@ class AppStatusItemMenu: NSMenu {
         fatalError("init(coder: \(coder) has not been implemented")
     }
 }
-
-
