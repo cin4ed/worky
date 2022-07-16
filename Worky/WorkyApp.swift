@@ -29,10 +29,10 @@ struct WorkyApp: App {
         
         WorkyApp.shared = self
         
-        // Create directory container for workspaces in
-        // $HOME/Documents/Worky if needed
         let fm = FileManager.default
         
+        // Create directory container for workspaces in
+        // $HOME/Documents/Worky if needed
         let containerURL = fm
             .homeDirectoryForCurrentUser
             .appendingPathComponent("Documents/Worky")
@@ -43,7 +43,7 @@ struct WorkyApp: App {
             withIntermediateDirectories: true,
             attributes: nil)
         
-        // Set the container
+        // If everything went well set the container
         WorkyApp.container = containerURL
         
         // Check if there's a workspace in the desktop directory,
@@ -52,6 +52,8 @@ struct WorkyApp: App {
             .homeDirectoryForCurrentUser
             .appendingPathComponent("Desktop")
         
+        // Trying to read the contents of desktop this shouldn't go
+        // wrong right? so force unwrap
         let desktopContents = try! fm.contentsOfDirectory(
             at: desktopURL, includingPropertiesForKeys: nil)
          
