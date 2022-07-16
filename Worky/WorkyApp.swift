@@ -19,7 +19,7 @@ struct WorkyApp: App {
     static private(set) var shared: WorkyApp!
     
     static private(set) var container: URL!
-    static var currentWorkspace: Workspace!
+    static var currentWorkspace: Workspace?
     
     var body: some Scene {
         Settings {}
