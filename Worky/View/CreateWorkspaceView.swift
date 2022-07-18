@@ -96,6 +96,8 @@ extension CreateWorkspaceView {
             Workspace.selectWorkspace(workspace)
         }
         
+        self.emoji = "📦"
+        
         CreateWorkspaceWindow.shared.close()
     }
     
