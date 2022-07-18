@@ -102,6 +102,8 @@ extension CreateWorkspaceView {
     }
     
     func cancelButtonHandler() -> Void {
+        self.emoji = "📦"
+        
         CreateWorkspaceWindow.shared.close()
     }
 }
