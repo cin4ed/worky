@@ -96,12 +96,16 @@ extension CreateWorkspaceView {
             Workspace.selectWorkspace(workspace)
         }
         
+        // Reset
+        self.name = ""
         self.emoji = "📦"
         
         CreateWorkspaceWindow.shared.close()
     }
     
     func cancelButtonHandler() -> Void {
+        // Reset
+        self.name = ""
         self.emoji = "📦"
         
         CreateWorkspaceWindow.shared.close()
