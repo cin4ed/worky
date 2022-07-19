@@ -82,7 +82,7 @@ extension CreateWorkspaceView {
     
     func createButtonHandler() -> Void {
         
-        // Only crate one if there's a name
+        // Only create one if there's a name
         if !$name.wrappedValue.isEmpty {
             
             let workspace = Workspace(
