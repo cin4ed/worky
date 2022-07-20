@@ -216,4 +216,12 @@ extension Workspace {
             print(error)
         }
     }
+    
+    static func getAllWorkspacesWithCurrent() -> [Workspace] {
+        var workspaces = Workspace.getWorkspaces()
+        if let currentWorkspace = WorkyApp.currentWorkspace {
+            workspaces.append(currentWorkspace)
+        }
+        return workspaces
+    }
 }
