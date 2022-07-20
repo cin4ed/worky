@@ -144,7 +144,8 @@ extension Workspace {
         
         if desktopIsAWorkspace {
             
-            let currentWorkspaceURL = WorkyApp.currentWorkspace.url
+            // If desktop is a workspace then force unwrap
+            let currentWorkspaceURL = WorkyApp.currentWorkspace!.url
             
             // many assumptions here!!!!
             for URL in desktopContents {
