@@ -17,7 +17,7 @@ class CreateWorkspaceWindow: NSPanel {
     override var canBecomeKey: Bool { true }
     
     private init() {
-        // Will let all this shit here for learning purposes
+        // Will leave all this shit here for learning purposes
 //        super.init(
 //            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
 //            styleMask: [.titled, .fullSizeContentView],
