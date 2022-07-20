@@ -82,13 +82,17 @@ extension Workspace {
     static func getWorkspaces() -> [Workspace] {
         var workspaces: [Workspace] = []
         
-        let contents = try! FileManager.default.contentsOfDirectory(
+        guard let contents = try? FileManager.default.contentsOfDirectory(
              at: WorkyApp.container,
              includingPropertiesForKeys: nil,
              options: [
                  FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants,
                  FileManager.DirectoryEnumerationOptions.skipsHiddenFiles,
              ])
+        else {
+            print("Couldn't get the contents of the workspace container.")
+            return workspaces
+        }
         
         for item in contents {
              guard let data = FileManager.default.contents(atPath: item.path + "/.worky.json") else {
