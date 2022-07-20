@@ -9,14 +9,27 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    var  workspaces = Workspace.getWorkspaces()
+    @State private var workspaces = Workspace.getAllWorkspacesWithCurrent()
     
     var body: some View {
         VStack(alignment: .leading) {
             List {
                 Section {
-                    ForEach(workspaces) { workspace in
-                        WorkspaceListItem(workspace: workspace)
+                    ForEach($workspaces) { $workspace in
+                        // List item
+                        HStack {
+                            Text(workspace.emoji)
+                            Text(workspace.title)
+                            Spacer()
+                            Button {
+                                Workspace.deleteWorkspace(workspace)
+                                workspaces = Workspace.getAllWorkspacesWithCurrent()
+                            } label: {
+                                Image(systemName: "trash.fill")
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .padding(5)
                     }
                 } header: {
                     Text("Workspaces")
@@ -30,6 +43,9 @@ struct SettingsView: View {
         }
         .frame(maxWidth: 300)
         .padding()
+        .onAppear {
+            self.workspaces = Workspace.getAllWorkspacesWithCurrent()
+        }
     }
 }
 
