@@ -19,6 +19,15 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
         menu.removeAllItems()
 
+        // Add version number
+        var workyVersion: String?
+        
+        if let bundleVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"]  {
+            if let version = bundleVersionString as? String {
+                workyVersion = version
+            }
+        }
+        
         menu.addItem(
             withTitle: "Worky \(String(describing: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String))",
             action: nil,
