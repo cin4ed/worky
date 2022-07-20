@@ -17,6 +17,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     
     // MARK: Menu items
     func menuWillOpen(_ menu: NSMenu) {
+        // Clean the displaying menu
         menu.removeAllItems()
 
         // Add version number
@@ -66,6 +67,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
                 item.representedObject = workspace
                 item.target = self
             }
+            
         } else if WorkyApp.currentWorkspace == nil {
             menu.addItem(
                 withTitle: "No workspaces available",
