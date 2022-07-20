@@ -30,6 +30,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         }
         
         menu.addItem(
+            withTitle: "Worky \(workyVersion ?? "")",
             action: nil,
             keyEquivalent: ""
         )
