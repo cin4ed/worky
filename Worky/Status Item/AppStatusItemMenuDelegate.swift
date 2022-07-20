@@ -7,7 +7,6 @@
 
 import Foundation
 import AppKit
-import SwiftUI
 
 class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     
