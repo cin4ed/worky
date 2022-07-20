@@ -169,4 +169,6 @@ extension Workspace {
         
         WorkyApp.currentWorkspace = workspace
     }
+                // Set current workspace to nil
+                WorkyApp.currentWorkspace = nil
 }
