@@ -30,13 +30,12 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         }
         
         menu.addItem(
-            withTitle: "Worky \(String(describing: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String))",
             action: nil,
             keyEquivalent: ""
         )
         
         menu.addItem(
-            withTitle: "Add new",
+            withTitle: "Add new workspace",
             action: #selector(addNewWorkspace),
             keyEquivalent: "a"
         ).target = self
