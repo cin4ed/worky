@@ -170,6 +170,50 @@ extension Workspace {
         
         WorkyApp.currentWorkspace = workspace
     }
+    
+    static func deleteWorkspace(_ workspace: Workspace) {
+        
+        let fm = FileManager.default
+        
+        // If there's a current workspace.
+        if let currentWorkspace = WorkyApp.currentWorkspace {
+            
+            // If workspace to delete is the current one.
+            if workspace.id == currentWorkspace.id {
+                
+                let desktopURL = fm
+                    .homeDirectoryForCurrentUser
+                    .appendingPathComponent("Desktop")
+                
+                
+                // Then remove files in desktop and workspace dir in Documents/Worky.
+                do {
+                    let desktopContents = try fm.contentsOfDirectory(at: desktopURL, includingPropertiesForKeys: nil)
+                    
+                    for filePath in desktopContents {
+                        try fm.removeItem(at: filePath)
+                    }
+                    try fm.removeItem(at: workspace.url)
+                } catch {
+                    print(error)
+                }
+                
                 // Set current workspace to nil
                 WorkyApp.currentWorkspace = nil
+                
+                return // There's no need to keep going.
+            }
+        }
+        
+        // If there's not a current workspace or the current one is not being deleted
+        // then delete the given workspace.
+        let workspaceDir = workspace.url
+            
+        do {
+            try fm.removeItem(at: workspaceDir)
+        } catch {
+            print("Couldn't remove workspace: \(workspace.title)")
+            print(error)
+        }
+    }
 }
