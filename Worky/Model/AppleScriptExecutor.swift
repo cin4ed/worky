@@ -23,12 +23,6 @@ struct AppleScriptExecutor {
         }
         appleScriptLog.info("Script file found and returned succesfully.")
         
-//        let contentOfFile = try? String(contentsOfFile: scriptFilePath)
-//
-//        guard let appleScript = contentOfFile else {
-//            return (false, nil)
-//        }
-        
         appleScriptLog.info("Trying to read the contents of the script file.")
         guard let appleScript = try? String(contentsOfFile: scriptFilePath) else {
             appleScriptLog.error("Could not read the contents of the script file.")
