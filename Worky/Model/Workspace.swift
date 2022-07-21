@@ -306,11 +306,14 @@ extension Workspace {
         }
     }
     
+    // MARK: - GetAllWorkspacesWithCurrent
     static func getAllWorkspacesWithCurrent() -> [Workspace] {
         var workspaces = Workspace.getWorkspaces()
+       
         if let currentWorkspace = WorkyApp.currentWorkspace {
             workspaces.append(currentWorkspace)
         }
+        
         return workspaces
     }
 }
