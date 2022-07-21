@@ -73,12 +73,24 @@ extension Workspace {
         }
     }
     
+    // MARK: - Serialize
     static func serialize(_ workspace: Workspace) {
+        workspaceLog.info("Trying to serialize workspace: \(workspace.title, privacy: .public)")
+        
         let jsonEncoder = JSONEncoder()
-        let jsonData = try! jsonEncoder.encode(workspace)
+        
+        workspaceLog.info("Trying to encode workspace: \(workspace.title, privacy: .public)")
+        
+        guard let jsonData = try? jsonEncoder.encode(workspace) else {
+            workspaceLog.error("Could not encode workspace.")
+            fatalError("Could not encode workspace.")
+        }
+        
+        workspaceLog.info("Encoded workspace succesfully.")
         
         let fm = FileManager.default
         
+        workspaceLog.info("Creating file for serialized workspace at: \(workspace.url.path).")
         fm.createFile(
             atPath: workspace.url.path+"/.worky.json",
             contents: jsonData,
