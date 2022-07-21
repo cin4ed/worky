@@ -13,3 +13,8 @@ let startupLog = Logger(
     subsystem: defaultSubsystem,
     category: "startup"
 )
+
+let appleScriptLog = Logger(
+    subsystem: defaultSubsystem,
+    category: "apple_script_execution"
+)
