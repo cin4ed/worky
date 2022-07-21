@@ -25,7 +25,7 @@
 		9F8C7423287F41FA004F4C00 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */; };
 		9F8C7425287F42C3004F4C00 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7424287F42C3004F4C00 /* SettingsView.swift */; };
 		9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */; };
-		9F8C742928838F2A004F4C00 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C742828838F2A004F4C00 /* OSLog.swift */; };
+		9F8C742928838F2A004F4C00 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C742828838F2A004F4C00 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		9F8C7422287F41FA004F4C00 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		9F8C7424287F42C3004F4C00 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListItem.swift; sourceTree = "<group>"; };
-		9F8C742828838F2A004F4C00 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		9F8C742828838F2A004F4C00 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9F294B53287CD83D00D8C025 /* String.swift */,
-				9F8C742828838F2A004F4C00 /* OSLog.swift */,
+				9F8C742828838F2A004F4C00 /* Logger.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */,
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
 				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
-				9F8C742928838F2A004F4C00 /* OSLog.swift in Sources */,
+				9F8C742928838F2A004F4C00 /* Logger.swift in Sources */,
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F294B54287CD83D00D8C025 /* String.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
