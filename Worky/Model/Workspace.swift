@@ -151,7 +151,9 @@ extension Workspace {
         return workspaces
     }
     
+    // MARK: - SelectWorkspace
     static func selectWorkspace(_ workspace: Workspace) -> Void {
+        workspaceLog.info("Selecting workspace: \(workspace.title)")
         
         let fm = FileManager.default
         
@@ -159,49 +161,81 @@ extension Workspace {
             .homeDirectoryForCurrentUser
             .appendingPathComponent("Desktop")
         
+        workspaceLog.info("Trying to get contents of desktop.")
         guard let desktopContents = try? fm.contentsOfDirectory(
             at: desktopURL,
-            includingPropertiesForKeys: nil) else {
-            print("Couldn't get contents of \(desktopURL.path)")
+            includingPropertiesForKeys: nil)
+        else {
+            workspaceLog.error("Could not get contents of desktop. Current workspace: \(WorkyApp.currentWorkspace != nil ? WorkyApp.currentWorkspace!.title : "nil")")
             return
         }
         
         var desktopIsAWorkspace = false;
         
         // use a for in
+        workspaceLog.info("Checking wheter desktop is workspace or not.")
         desktopContents.forEach { URL in
             if URL.path.contains(".worky.json") {
+                workspaceLog.info("Workspace found in desktop. Setting currentWorkspace.")
                 desktopIsAWorkspace = true
                 return
             }
         }
         
         if desktopIsAWorkspace {
+            workspaceLog.info("Getting workspace dir url from current workspace at desktop.")
             
             // If desktop is a workspace then force unwrap
-            let currentWorkspaceURL = WorkyApp.currentWorkspace!.url
+            guard let currentWorkspaceURL = WorkyApp.currentWorkspace?.url else {
+                workspaceLog.error("Could not get url from current workspace. There isn't one.")
+                fatalError("Could not get url from current workspace. There isn't one.")
+            }
+            
+            workspaceLog.info("Current workspace url obtained succefully.")
             
             // many assumptions here!!!!
             for URL in desktopContents {
+                workspaceLog.info("Looping through desktop contents to move them into their workspace directory.")
+                
+                // Move everyting except for the fucking .DS_Store file
                 if !URL.path.contains(".DS_Store") {
-                    try! fm.moveItem(
-                        at: URL,
-                        to: currentWorkspaceURL.appendingPathComponent(URL.lastPathComponent))
+                    do {
+                        workspaceLog.info("Trying to move item at: \(URL.path) to \(currentWorkspaceURL.path).")
+                        try fm.moveItem(
+                            at: URL,
+                            to: currentWorkspaceURL.appendingPathComponent(URL.lastPathComponent))
+                    } catch {
+                        workspaceLog.error("Could not move item to new location.")
+                        fatalError("Could not move item at \(URL.path) to \(currentWorkspaceURL.path).")
+                    }
                 }
             }
         }
 
-        let workspaceContents = try! fm.contentsOfDirectory(
+        workspaceLog.info("Trying to get contents of workspace directory at \(workspace.url.path)")
+        guard let workspaceContents = try? fm.contentsOfDirectory(
             at: workspace.url,
             includingPropertiesForKeys: nil)
+        else {
+            workspaceLog.error("Could not get contents directory.")
+            fatalError("Could not get contents of directory at \(workspace.url.path) contents that could be moved to desktop.")
+        }
         
+        workspaceLog.info("Looping through contents of workspace directory at \(workspace.url.path)")
         workspaceContents.forEach { URL in
             print(URL.path)
             if !URL.path.contains(".DS_Store") {
-                try! fm.moveItem(at: URL, to: desktopURL.appendingPathComponent(URL.lastPathComponent))
+                do {
+                    workspaceLog.info("Trying to move element at \(URL.path) to desktop.")
+                    try fm.moveItem(at: URL, to: desktopURL.appendingPathComponent(URL.lastPathComponent))
+                } catch {
+                    workspaceLog.error("Could not move element to desktop.")
+                    fatalError("Could not move element at \(URL.path) to desktop.")
+                }
             }
         }
         
+        workspaceLog.info("Setting current workspace to workspace selected: \(workspace.title)")
         WorkyApp.currentWorkspace = workspace
     }
     
