@@ -55,15 +55,22 @@ struct Workspace: Identifiable, Encodable {
 }
 
 extension Workspace {
-    
+   
+    // MARK: - CreateDirectory
     static func createDirectory(for workspace: Workspace) {
         let fm = FileManager.default
         
-        try! fm.createDirectory(
-            at: workspace.url,
-            withIntermediateDirectories: true,
-            attributes: nil
-        )
+        do {
+            workspaceLog.info("Trying to create directory for workspace: \(workspace.title, privacy: .public)")
+            try fm.createDirectory(
+                at: workspace.url,
+                withIntermediateDirectories: true,
+                attributes: nil
+            )
+        } catch {
+            workspaceLog.error("Could not create directory. Error: \(error.localizedDescription, privacy: .public)")
+            fatalError("Could not create directory. Error \(error)")
+        }
     }
     
     static func serialize(_ workspace: Workspace) {
