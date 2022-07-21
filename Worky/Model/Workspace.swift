@@ -102,9 +102,11 @@ extension Workspace {
 
 extension Workspace {
     
+    // MARK: - GetWorkspaces
     static func getWorkspaces() -> [Workspace] {
         var workspaces: [Workspace] = []
         
+        workspaceLog.info("Trying to get contents of workspace container at $HOME/Documents/Worky.")
         guard let contents = try? FileManager.default.contentsOfDirectory(
              at: WorkyApp.container,
              includingPropertiesForKeys: nil,
@@ -113,32 +115,35 @@ extension Workspace {
                  FileManager.DirectoryEnumerationOptions.skipsHiddenFiles,
              ])
         else {
-            print("Couldn't get the contents of the workspace container.")
             return workspaces
         }
         
         for item in contents {
-             guard let data = FileManager.default.contents(atPath: item.path + "/.worky.json") else {
-                 print("Couldn't read the contents of file: \(item.path)/.worky.json")
-                 continue
-             }
+            workspaceLog.info("Handling contents of workpace directory at \(item.path).")
+            
+            guard let data = FileManager.default.contents(atPath: item.path + "/.worky.json") else {
+                // Will try to read contents of current workspace directory always (it will be empty)
+                workspaceLog.info("Could not read contents of file at: \(item.path)/.worky.json")
+                continue
+            }
 
-             guard let jsonRaw = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                 print("Coulnd't get json from data: \(data)")
-                 continue
-             }
+            guard let jsonRaw = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                workspaceLog.error("Could not get json from data: \(data, privacy: .public)")
+                continue
+            }
              
-             guard let jsonParsed = jsonRaw as? [String : String] else {
-                 print("Couldn't parse json as [String : String]: \(jsonRaw)")
-                 continue
-             }
+            guard let jsonParsed = jsonRaw as? [String : String] else {
+                // Error while trying to put jsonRaw in string interpolation
+                workspaceLog.error("could not parse json as [String : String] : jsonRaw")
+                continue
+            }
 
-             guard let workspace = Workspace.init(from: jsonParsed) else {
-                 print("Couldn't create workspace from json: \(jsonParsed)")
-                 continue
-             }
+            guard let workspace = Workspace.init(from: jsonParsed) else {
+                workspaceLog.error("Could not create workspace from json: \(jsonParsed, privacy: .public)")
+                continue
+            }
              
-             workspaces.append(workspace)
+            workspaces.append(workspace)
         }
         
         return workspaces
