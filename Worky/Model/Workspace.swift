@@ -235,7 +235,7 @@ extension Workspace {
             }
         }
         
-        workspaceLog.info("Setting current workspace to workspace selected: \(workspace.title)")
+        workspaceLog.info("Setting current workspace to workspace selected: \(workspace.title).")
         WorkyApp.currentWorkspace = workspace
     }
     
