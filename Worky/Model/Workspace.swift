@@ -107,6 +107,7 @@ extension Workspace {
         var workspaces: [Workspace] = []
         
         workspaceLog.info("Trying to get contents of workspace container at $HOME/Documents/Worky.")
+        
         guard let contents = try? FileManager.default.contentsOfDirectory(
              at: WorkyApp.container,
              includingPropertiesForKeys: nil,
@@ -115,6 +116,7 @@ extension Workspace {
                  FileManager.DirectoryEnumerationOptions.skipsHiddenFiles,
              ])
         else {
+            workspaceLog.error("Could not get the contents.")
             return workspaces
         }
         
