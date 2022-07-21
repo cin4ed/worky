@@ -91,6 +91,7 @@ extension Workspace {
         let fm = FileManager.default
         
         workspaceLog.info("Creating file for serialized workspace at: \(workspace.url.path).")
+        
         fm.createFile(
             atPath: workspace.url.path+"/.worky.json",
             contents: jsonData,
