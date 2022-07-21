@@ -80,7 +80,7 @@ struct WorkyApp: App {
                     fatalError("Could not instantiate workspace found in desktop at startup.")
                 }
                 
-                startupLog.info("Workspace encountered in desktop. \(workspace.title, privacy: .public)")
+                startupLog.info("Workspace encountered in desktop: \(workspace.title, privacy: .public)")
                 
                 startupLog.info("Setting current workspace to workspace found in desktop.")
                 WorkyApp.currentWorkspace = workspace
