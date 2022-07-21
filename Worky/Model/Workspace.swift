@@ -39,9 +39,12 @@ struct Workspace: Identifiable, Encodable {
     }
     
     init(file: URL) throws {
+        workspaceLog.info("Creating workspace from file path.")
         
         let data = FileManager.default.contents(atPath: file.path)
         let jsonRaw = try JSONSerialization.jsonObject(with: data!, options: [])
+        
+        workspaceLog.info("Parsing workspace json from serialized workspace.")
         let jsonParsed = jsonRaw as! [String : String]
         
         self.title = jsonParsed["title"]!
