@@ -18,3 +18,8 @@ let appleScriptLog = Logger(
     subsystem: defaultSubsystem,
     category: "apple_script_execution"
 )
+
+let workspaceLog = Logger(
+    subsystem: defaultSubsystem,
+    category: "workpace_operation"
+)
