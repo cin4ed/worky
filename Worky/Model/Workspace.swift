@@ -239,7 +239,9 @@ extension Workspace {
         WorkyApp.currentWorkspace = workspace
     }
     
+    // MARK: - DeleteWorkspace
     static func deleteWorkspace(_ workspace: Workspace) {
+        workspaceLog.info("Deleting workspace: \(workspace.title).")
         
         let fm = FileManager.default
         
@@ -248,27 +250,45 @@ extension Workspace {
             
             // If workspace to delete is the current one.
             if workspace.id == currentWorkspace.id {
+                workspaceLog.info("Workspace being deleted is the current one.")
                 
                 let desktopURL = fm
                     .homeDirectoryForCurrentUser
                     .appendingPathComponent("Desktop")
                 
-                
                 // Then remove files in desktop and workspace dir in Documents/Worky.
-                do {
-                    let desktopContents = try fm.contentsOfDirectory(at: desktopURL, includingPropertiesForKeys: nil)
-                    
-                    for filePath in desktopContents {
-                        try fm.removeItem(at: filePath)
+                workspaceLog.info("Trying get contents of desktop.")
+                guard let desktopContents = try? fm.contentsOfDirectory(at: desktopURL, includingPropertiesForKeys: nil) else {
+                    workspaceLog.error("Could not get contents from desktop.")
+                    fatalError("Could not get contents from desktop.")
+                }
+                
+                // Looping through desktop contents
+                workspaceLog.info("Looping through desktop contents.")
+                for fileURL in desktopContents {
+                    workspaceLog.info("Trying to remove file at: \(fileURL.path)")
+                    do {
+                        try fm.removeItem(at: fileURL)
+                    } catch {
+                        workspaceLog.error("Could not remove file.")
+                        fatalError("Could not remove file at \(fileURL.path). Error: \(error)")
                     }
+                }
+                
+                // Then remove workspace directory at $HOME/Documents/Worky
+                do {
+                    workspaceLog.info("Trying to remove current workspace directory: \(workspace.title) at \(workspace.url.path)")
                     try fm.removeItem(at: workspace.url)
                 } catch {
-                    print(error)
+                    workspaceLog.error("Could not remove workspace directory.")
+                    fatalError("Could not remove workspace directory at \(workspace.url.path) . Error: \(error)")
                 }
                 
                 // Set current workspace to nil
+                workspaceLog.info("Setting current workspace to nil.")
                 WorkyApp.currentWorkspace = nil
                 
+                workspaceLog.info("Returning from deleting current workspace.")
                 return // There's no need to keep going.
             }
         }
@@ -280,8 +300,8 @@ extension Workspace {
         do {
             try fm.removeItem(at: workspaceDir)
         } catch {
-            print("Couldn't remove workspace: \(workspace.title)")
-            print(error)
+            workspaceLog.error("Could not remove workspace directory.")
+            fatalError("Could not remove workspace directory at \(workspaceDir)")
         }
     }
     
