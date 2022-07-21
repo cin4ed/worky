@@ -298,6 +298,7 @@ extension Workspace {
         let workspaceDir = workspace.url
             
         do {
+            workspaceLog.info("Trying to remove workspace directory at \(workspaceDir)")
             try fm.removeItem(at: workspaceDir)
         } catch {
             workspaceLog.error("Could not remove workspace directory.")
