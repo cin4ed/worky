@@ -86,7 +86,7 @@ extension CreateWorkspaceView {
         if !$name.wrappedValue.isEmpty {
             
             let workspace = Workspace(
-                title: $name.wrappedValue.removeEmojis(),
+                title: $name.wrappedValue,
                 emoji: $emoji.wrappedValue,
                 container: WorkyApp.container
             )
