@@ -12,7 +12,6 @@
 		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
 		9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */; };
 		9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */; };
-		9F294B54287CD83D00D8C025 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B53287CD83D00D8C025 /* String.swift */; };
 		9F294B5C287D16B300D8C025 /* WorkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B5B287D16B300D8C025 /* WorkyTests.swift */; };
 		9F294B63287E6B5100D8C025 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B62287E6B5100D8C025 /* emoji.json */; };
 		9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B64287E6C0B00D8C025 /* Emoji.swift */; };
@@ -44,7 +43,6 @@
 		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
 		9F294B49287A490500D8C025 /* ToggleDesktopVisibility.scpt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToggleDesktopVisibility.scpt; sourceTree = "<group>"; };
 		9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceWindow.swift; sourceTree = "<group>"; };
-		9F294B53287CD83D00D8C025 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9F294B59287D16B300D8C025 /* WorkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F294B5B287D16B300D8C025 /* WorkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyTests.swift; sourceTree = "<group>"; };
 		9F294B62287E6B5100D8C025 /* emoji.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		9F294B52287CD82A00D8C025 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9F294B53287CD83D00D8C025 /* String.swift */,
 				9F8C742828838F2A004F4C00 /* Logger.swift */,
 			);
 			path = Extensions;
@@ -307,7 +304,6 @@
 				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
 				9F8C742928838F2A004F4C00 /* Logger.swift in Sources */,
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
-				9F294B54287CD83D00D8C025 /* String.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
 				9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */,
 				9F744C30284D21550049AE08 /* AppDelegate.swift in Sources */,
