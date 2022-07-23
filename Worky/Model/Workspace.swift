@@ -252,36 +252,45 @@ extension Workspace {
             if workspace.id == currentWorkspace.id {
                 workspaceLog.info("Workspace being deleted is the current one.")
                 
+                // Move items in desktop to their workspace directory
                 let desktopURL = fm
                     .homeDirectoryForCurrentUser
                     .appendingPathComponent("Desktop")
                 
-                // Then remove files in desktop and workspace dir in Documents/Worky.
-                workspaceLog.info("Trying get contents of desktop.")
-                guard let desktopContents = try? fm.contentsOfDirectory(at: desktopURL, includingPropertiesForKeys: nil) else {
+                workspaceLog.info("Trying to get contents of desktop.")
+                guard let desktopContents = try? fm.contentsOfDirectory(
+                    at: desktopURL,
+                    includingPropertiesForKeys: nil)
+                else {
                     workspaceLog.error("Could not get contents from desktop.")
                     fatalError("Could not get contents from desktop.")
                 }
                 
-                // Looping through desktop contents
                 workspaceLog.info("Looping through desktop contents.")
                 for fileURL in desktopContents {
-                    workspaceLog.info("Trying to remove file at: \(fileURL.path)")
-                    do {
-                        try fm.removeItem(at: fileURL)
-                    } catch {
-                        workspaceLog.error("Could not remove file.")
-                        fatalError("Could not remove file at \(fileURL.path). Error: \(error)")
+                    // Skip .DS_Store files
+                    if !fileURL.path.contains(".DS_Store") {
+                        // Destination = $WORKSPACE_URL/item
+                        let destinationURL = workspace.url.appendingPathComponent(fileURL.lastPathComponent)
+                        workspaceLog.info("Trying to move file at: \(fileURL.path) to \(destinationURL.path)")
+                        do {
+                            try fm.moveItem(at: fileURL, to: destinationURL)
+                        } catch {
+                            workspaceLog.error("Could not move file.")
+                            fatalError("Could not move file at \(fileURL.path). Error: \(error)")
+                        }
                     }
                 }
                 
-                // Then remove workspace directory at $HOME/Documents/Worky
+                workspaceLog.info("Items from desktop moved to workspace directory succesfully.")
+                
+                // Move workspace directory to trash
                 do {
                     workspaceLog.info("Trying to remove current workspace directory: \(workspace.title) at \(workspace.url.path)")
-                    try fm.removeItem(at: workspace.url)
+                    try fm.trashItem(at: workspace.url, resultingItemURL: nil)
                 } catch {
-                    workspaceLog.error("Could not remove workspace directory.")
-                    fatalError("Could not remove workspace directory at \(workspace.url.path) . Error: \(error)")
+                    workspaceLog.error("Could not move workspace directory \(workspace.title) to trash.")
+                    fatalError("Could not move workspace directory at \(workspace.url.path) to trash. Error: \(error)")
                 }
                 
                 // Set current workspace to nil
@@ -296,13 +305,13 @@ extension Workspace {
         // If there's not a current workspace or the current one is not being deleted
         // then delete the given workspace.
         let workspaceDir = workspace.url
-            
+        
         do {
-            workspaceLog.info("Trying to remove workspace directory at \(workspaceDir)")
-            try fm.removeItem(at: workspaceDir)
+            workspaceLog.info("Trying to move workspace \(workspace.title) at location \(workspace.url.path) to trash bin.")
+            try fm.trashItem(at: workspaceDir, resultingItemURL: nil)
         } catch {
-            workspaceLog.error("Could not remove workspace directory.")
-            fatalError("Could not remove workspace directory at \(workspaceDir)")
+            workspaceLog.error("Could not move directory to trash bin.")
+            fatalError("Could not move directory at: \(workspaceDir.path) to trash. Error: \(error).")
         }
     }
     
