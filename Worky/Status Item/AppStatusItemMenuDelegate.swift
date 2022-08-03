@@ -91,8 +91,8 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
             
         menu.addItem(
-            withTitle: "Settings",
-            action: #selector(showSettingsWindow),
+            withTitle: "Manage workspaces",
+            action: #selector(showManageWindow),
             keyEquivalent: ""
         ).target = self
         
@@ -110,10 +110,10 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     }
     
     // MARK: Delete workspace
-    @objc func showSettingsWindow(sender: NSMenuItem) {
+    @objc func showManageWindow(sender: NSMenuItem) {
 //        let workspace = sender.representedObject as! Workspace;
 //        print("Workspace deleted: \(workspace.title)")
-        SettingsWindow.shared.bringToFront()
+        ManageWindow.shared.bringToFront()
     }
 
     // MARK: Create workspace

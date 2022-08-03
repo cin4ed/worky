@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-class SettingsWindow: NSWindow {
+class ManageWindow: NSWindow {
     
-    static var shared = SettingsWindow()
+    static var shared = ManageWindow()
     
     private init() {
         super.init(
@@ -23,7 +23,7 @@ class SettingsWindow: NSWindow {
         self.isReleasedWhenClosed = false
         self.titlebarAppearsTransparent = true
         self.titleVisibility = .hidden
-        self.contentView = NSHostingView(rootView: SettingsView())
+        self.contentView = NSHostingView(rootView: ManageView())
         self.center()
     }
     
