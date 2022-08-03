@@ -40,11 +40,12 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
             keyEquivalent: "a"
         ).target = self
         
-        menu.addItem(
-            withTitle: "Toggle desktop visibility",
-            action: #selector(toggleDesktop),
-            keyEquivalent: ""
-        ).target = self
+        // Not working on all devices TODO: check why
+//        menu.addItem(
+//            withTitle: "Toggle desktop visibility",
+//            action: #selector(toggleDesktop),
+//            keyEquivalent: ""
+//        ).target = self
         
         menu.addItem(.separator())
         
