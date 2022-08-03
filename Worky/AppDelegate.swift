@@ -19,10 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Setup the status bar item with its menu
         AppDelegate.appStatusItem = AppDelegate
             .appStatusBar
-            .statusItem(withLength: NSStatusItem.squareLength)
+            .statusItem(withLength: NSStatusItem.variableLength)
         
-        // Change this for the app icon
-        AppDelegate.appStatusItem.button!.title = "📦"
+        AppDelegate.appStatusItem.button!.image = NSImage(named: "status-bar-icon")
         
         AppDelegate.appStatusItemMenu = AppStatusItemMenu()
         AppDelegate.appStatusItem.menu = AppDelegate.appStatusItemMenu
