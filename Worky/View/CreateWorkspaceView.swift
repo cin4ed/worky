@@ -101,6 +101,8 @@ extension CreateWorkspaceView {
         self.emoji = "📦"
         
         CreateWorkspaceWindow.shared.close()
+        
+        WorkyModel.shared.update() // Update app model
     }
     
     func cancelButtonHandler() -> Void {
