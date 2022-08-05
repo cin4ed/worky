@@ -10,8 +10,9 @@ import SwiftUI
 struct WorkspaceItem: View {
     @EnvironmentObject var worky: WorkyModel
     @State var workspace: Workspace
-    @State var presentingAlert = false
-    @State var overExport = false
+    @State private var presentingAlert = false
+    @State private var overExport = false
+    @State private var overDelete = false
     
     var body: some View {
         HStack {
@@ -46,6 +47,17 @@ struct WorkspaceItem: View {
                 Image(systemName: "trash.fill")
             }
             .buttonStyle(PlainButtonStyle())
+            .onHover { over in overDelete = over }
+            .background {
+                if overDelete {
+                    Rectangle()
+                        .fill(Color(.sRGB, red: 255, green: 255, blue: 255, opacity: 0.2))
+                        .cornerRadius(2.5)
+                        .frame(width: 20, height: 20)
+                } else {
+                    EmptyView()
+                }
+            }
             .confirmationDialog(
                 "Do you want to move\n[\(workspace.emoji) \(workspace.title)]\nto the trash can?",
                 isPresented: $presentingAlert) {
