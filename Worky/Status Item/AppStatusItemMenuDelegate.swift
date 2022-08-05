@@ -40,6 +40,12 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
             keyEquivalent: "a"
         ).target = self
         
+        menu.addItem(
+            withTitle: "Import as workspace",
+            action: #selector(importAsWorkspace),
+            keyEquivalent: ""
+        ).target = self
+        
         // Not working on all devices TODO: check why
 //        menu.addItem(
 //            withTitle: "Toggle desktop visibility",
@@ -124,6 +130,38 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     // MARK: Hide desktop
     @objc func toggleDesktop() {
         AppleScriptExecutor.toggleDesktopVisibility()
+    }
+    
+    @objc func importAsWorkspace() {
+        let panel = NSOpenPanel()
+        panel.canCreateDirectories = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.allowsMultipleSelection = false
+        
+        let response = panel.runModal()
+        let importURL = response == .OK ? panel.url : nil
+          
+        let fm = FileManager.default
+        
+        // Check whether the selected folder is inside worky directory already
+        if !fm.fileExists(atPath: WorkyApp.container.appendingPathComponent(importURL!.lastPathComponent).path) {
+            try! fm.moveItem(at: importURL!, to: WorkyApp.container!.appendingPathComponent(importURL!.lastPathComponent))
+        }
+        
+        // Copy given directory
+        let newWorkspace = Workspace(
+            title: importURL!.lastPathComponent,
+            emoji: "📦",
+            url: WorkyApp.container!.appendingPathComponent(importURL!.lastPathComponent)
+        )
+        
+        // Check if it's not serialized already
+        if !fm.fileExists(atPath: newWorkspace.url.path+"/.worky.json") {
+            Workspace.serialize(newWorkspace)
+        }
+        
+        WorkyModel.shared.update()
     }
     
     // MARK: Quit appplication
