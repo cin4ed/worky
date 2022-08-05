@@ -19,11 +19,13 @@ struct ManageView: View {
                             .environmentObject(worky)
                     }
                 } header: {
-                    Text("Workspaces")
-                } footer: {
-                    Text("\($worky.workspaces.count) workspaces")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    HStack {
+                        Text("Workspaces:")
+                        Spacer()
+                        Text("\($worky.workspaces.count) workspaces")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
         }
