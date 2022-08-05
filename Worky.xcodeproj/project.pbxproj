@@ -15,6 +15,8 @@
 		9F294B5C287D16B300D8C025 /* WorkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B5B287D16B300D8C025 /* WorkyTests.swift */; };
 		9F294B63287E6B5100D8C025 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B62287E6B5100D8C025 /* emoji.json */; };
 		9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B64287E6C0B00D8C025 /* Emoji.swift */; };
+		9F3E12BB289C819B00420A94 /* WorkyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E12BA289C819B00420A94 /* WorkyModel.swift */; };
+		9F3E12BE289C851600420A94 /* WorkspaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E12BD289C851600420A94 /* WorkspaceItem.swift */; };
 		9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2102842DB9000F5319F /* WorkyApp.swift */; };
 		9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */; };
 		9F65A2152842DB9200F5319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		9F294B5B287D16B300D8C025 /* WorkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyTests.swift; sourceTree = "<group>"; };
 		9F294B62287E6B5100D8C025 /* emoji.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
 		9F294B64287E6C0B00D8C025 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		9F3E12BA289C819B00420A94 /* WorkyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyModel.swift; sourceTree = "<group>"; };
+		9F3E12BD289C851600420A94 /* WorkspaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceItem.swift; sourceTree = "<group>"; };
 		9F65A20D2842DB9000F5319F /* Worky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F65A2102842DB9000F5319F /* WorkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyApp.swift; sourceTree = "<group>"; };
 		9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceView.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 			path = WorkyTests;
 			sourceTree = "<group>";
 		};
+		9F3E12BC289C84A600420A94 /* Manage workspaces */ = {
+			isa = PBXGroup;
+			children = (
+				9F8C7424287F42C3004F4C00 /* ManageView.swift */,
+				9F3E12BD289C851600420A94 /* WorkspaceItem.swift */,
+			);
+			path = "Manage workspaces";
+			sourceTree = "<group>";
+		};
 		9F65A2042842DB9000F5319F = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +173,8 @@
 		9F65A22828456F1400F5319F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F3E12BC289C84A600420A94 /* Manage workspaces */,
 				9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */,
-				9F8C7424287F42C3004F4C00 /* ManageView.swift */,
 				9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */,
 			);
 			path = View;
@@ -175,6 +188,7 @@
 				9F65A2202845608D00F5319F /* Workspace.swift */,
 				9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */,
 				9F294B64287E6C0B00D8C025 /* Emoji.swift */,
+				9F3E12BA289C819B00420A94 /* WorkyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F3E12BB289C819B00420A94 /* WorkyModel.swift in Sources */,
 				9F8C7423287F41FA004F4C00 /* ManageWindow.swift in Sources */,
 				9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */,
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
@@ -310,6 +325,7 @@
 				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
 				9F8C7425287F42C3004F4C00 /* ManageView.swift in Sources */,
 				9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */,
+				9F3E12BE289C851600420A94 /* WorkspaceItem.swift in Sources */,
 				9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
