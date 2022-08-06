@@ -21,5 +21,5 @@ let appleScriptLog = Logger(
 
 let workspaceLog = Logger(
     subsystem: defaultSubsystem,
-    category: "workpace_operation"
+    category: "workspace_operation"
 )
