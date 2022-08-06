@@ -147,6 +147,12 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         // Check whether the selected folder is inside worky directory already
         if !fm.fileExists(atPath: WorkyApp.container.appendingPathComponent(importURL!.lastPathComponent).path) {
             try! fm.moveItem(at: importURL!, to: WorkyApp.container!.appendingPathComponent(importURL!.lastPathComponent))
+        } else {
+            let alert = NSAlert()
+            alert.icon = NSImage(named: "AppIcon")
+            alert.messageText = "A workspace with the same already exists."
+            alert.runModal()
+            return
         }
         
         // Copy given directory
