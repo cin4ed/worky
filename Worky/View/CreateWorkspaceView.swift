@@ -91,9 +91,21 @@ extension CreateWorkspaceView {
                 container: WorkyApp.container
             )
             
-            Workspace.createDirectory(for: workspace)
-            Workspace.serialize(workspace)
-            Workspace.selectWorkspace(workspace)
+            // Check if there's a workspace with the same name already
+            let existsWorkspaceWithSameName = FileManager.default.fileExists(
+                atPath: WorkyApp.container!.appendingPathComponent(workspace.title).path)
+            
+            if existsWorkspaceWithSameName {
+                let alert = NSAlert()
+                alert.icon = NSImage(named: "AppIcon")
+                alert.messageText = "A workspace with the same already exists."
+                alert.runModal()
+                return
+            } else {
+                Workspace.createDirectory(for: workspace)
+                Workspace.serialize(workspace)
+                Workspace.selectWorkspace(workspace)
+            }
         }
         
         // Reset
