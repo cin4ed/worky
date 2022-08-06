@@ -13,6 +13,8 @@ import AppKit
 @main
 struct WorkyApp: App {
     
+    @StateObject var updaterViewModel = UpdaterViewModel()
+    
     @NSApplicationDelegateAdaptor
     private var appDelegate: AppDelegate
     
@@ -23,6 +25,11 @@ struct WorkyApp: App {
     
     var body: some Scene {
         Settings {}
+            .commands {
+                CommandGroup(after: .appInfo) {
+                    CheckForUpdatesView(updaterViewModel: updaterViewModel)
+                }
+            }
     }
     
     init() {

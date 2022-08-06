@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F13F721289E25770083FC86 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9F13F720289E25770083FC86 /* Sparkle */; };
+		9F13F723289E2B820083FC86 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13F722289E2B820083FC86 /* SparkleUpdater.swift */; };
 		9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */; };
 		9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */; };
 		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F13F722289E2B820083FC86 /* SparkleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdater.swift; sourceTree = "<group>"; };
 		9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenu.swift; sourceTree = "<group>"; };
 		9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusItemMenuDelegate.swift; sourceTree = "<group>"; };
 		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F13F721289E25770083FC86 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +162,7 @@
 				9F65A2192842DB9200F5319F /* Worky.entitlements */,
 				9F65A21F28431B3000F5319F /* Info.plist */,
 				9F65A2162842DB9200F5319F /* Preview Content */,
+				9F13F722289E2B820083FC86 /* SparkleUpdater.swift */,
 			);
 			path = Worky;
 			sourceTree = "<group>";
@@ -236,6 +241,9 @@
 			dependencies = (
 			);
 			name = Worky;
+			packageProductDependencies = (
+				9F13F720289E25770083FC86 /* Sparkle */,
+			);
 			productName = Worky;
 			productReference = 9F65A20D2842DB9000F5319F /* Worky.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +276,9 @@
 				Base,
 			);
 			mainGroup = 9F65A2042842DB9000F5319F;
+			packageReferences = (
+				9F13F71F289E25770083FC86 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = 9F65A20E2842DB9000F5319F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -318,6 +329,7 @@
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
 				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
 				9F8C742928838F2A004F4C00 /* Logger.swift in Sources */,
+				9F13F723289E2B820083FC86 /* SparkleUpdater.swift in Sources */,
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
 				9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */,
@@ -573,6 +585,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F13F71F289E25770083FC86 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				branch = 2.x;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F13F720289E25770083FC86 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F13F71F289E25770083FC86 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9F65A2052842DB9000F5319F /* Project object */;
 }
