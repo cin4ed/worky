@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct ManageView: View {
     @StateObject private var worky = WorkyModel.shared
     
     var body: some View {
         VStack(alignment: .leading) {
+            HStack {
+                Spacer()
+                LaunchAtLogin.Toggle()
+                Spacer()
+            }
             List {
                 Section {
                     ForEach($worky.workspaces, id: \.id) { $workspace in

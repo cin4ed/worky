@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F13F721289E25770083FC86 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9F13F720289E25770083FC86 /* Sparkle */; };
 		9F13F723289E2B820083FC86 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13F722289E2B820083FC86 /* SparkleUpdater.swift */; };
+		9F13F726289F6D520083FC86 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 9F13F725289F6D520083FC86 /* LaunchAtLogin */; };
 		9F294B3A2878CC3200D8C025 /* AppStatusItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B392878CC3200D8C025 /* AppStatusItemMenu.swift */; };
 		9F294B3C2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B3B2878CD8E00D8C025 /* AppStatusItemMenuDelegate.swift */; };
 		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F13F726289F6D520083FC86 /* LaunchAtLogin in Frameworks */,
 				9F13F721289E25770083FC86 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +237,7 @@
 				9F65A2092842DB9000F5319F /* Sources */,
 				9F65A20A2842DB9000F5319F /* Frameworks */,
 				9F65A20B2842DB9000F5319F /* Resources */,
+				9F13F727289F6E370083FC86 /* Copy “Launch at Login Helper” */,
 			);
 			buildRules = (
 			);
@@ -243,6 +246,7 @@
 			name = Worky;
 			packageProductDependencies = (
 				9F13F720289E25770083FC86 /* Sparkle */,
+				9F13F725289F6D520083FC86 /* LaunchAtLogin */,
 			);
 			productName = Worky;
 			productReference = 9F65A20D2842DB9000F5319F /* Worky.app */;
@@ -278,6 +282,7 @@
 			mainGroup = 9F65A2042842DB9000F5319F;
 			packageReferences = (
 				9F13F71F289E25770083FC86 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				9F13F724289F6D520083FC86 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 9F65A20E2842DB9000F5319F /* Products */;
 			projectDirPath = "";
@@ -309,6 +314,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F13F727289F6E370083FC86 /* Copy “Launch at Login Helper” */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy “Launch at Login Helper”";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F294B55287D16B300D8C025 /* Sources */ = {
@@ -599,6 +625,14 @@
 				kind = branch;
 			};
 		};
+		9F13F724289F6D520083FC86 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -606,6 +640,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9F13F71F289E25770083FC86 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		9F13F725289F6D520083FC86 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F13F724289F6D520083FC86 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
