@@ -4,5 +4,11 @@
 <dict>
 	<key>LSUIElement</key>
 	<true/>
+	<key>SUPublicEDKey</key>
+	<string>lIdQw5ZIDjQkXqcy6DBlQJFd/bP3pH7eftOhvvYTgwI=</string>
+	<key>SUFeedURL</key>
+	<string>https://worky.betweenframes.net/appcast.xml</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
 </dict>
 </plist>
