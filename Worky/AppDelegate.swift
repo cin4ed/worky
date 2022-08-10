@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .statusItem(withLength: NSStatusItem.variableLength)
         
         AppDelegate.appStatusItem.button!.image = NSImage(named: "status-bar-icon")
+        AppDelegate.appStatusItem.button!.image!.isTemplate = true
         
         AppDelegate.appStatusItemMenu = AppStatusItemMenu()
         AppDelegate.appStatusItem.menu = AppDelegate.appStatusItemMenu
