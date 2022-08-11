@@ -29,6 +29,7 @@
 		9F8C7425287F42C3004F4C00 /* ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7424287F42C3004F4C00 /* ManageView.swift */; };
 		9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */; };
 		9F8C742928838F2A004F4C00 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C742828838F2A004F4C00 /* Logger.swift */; };
+		9FED81BE28A4963200C77196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +308,7 @@
 			files = (
 				9F294B4A287A490500D8C025 /* ToggleDesktopVisibility.scpt in Resources */,
 				9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */,
+				9FED81BE28A4963200C77196 /* Assets.xcassets in Resources */,
 				9F294B63287E6B5100D8C025 /* emoji.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +415,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -473,6 +478,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -526,7 +534,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Worky/Worky.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -557,7 +566,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Worky/Worky.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
