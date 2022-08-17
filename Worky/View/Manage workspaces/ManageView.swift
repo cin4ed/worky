@@ -13,25 +13,30 @@ struct ManageView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                LaunchAtLogin.Toggle()
-                Spacer()
-            }
-            List {
-                Section {
-                    ForEach($worky.workspaces, id: \.id) { $workspace in
-                        WorkspaceItem(workspace: workspace)
-                            .environmentObject(worky)
+            TabView {
+                List {
+                    Section {
+                        ForEach($worky.workspaces, id: \.id) { $workspace in
+                            WorkspaceItem(workspace: workspace)
+                                .environmentObject(worky)
+                        }
+                    } header: {
+                        HStack {
+                            Text("Workspaces:")
+                            Spacer()
+                            Text("\($worky.workspaces.count) workspaces")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
-                } header: {
-                    HStack {
-                        Text("Workspaces:")
-                        Spacer()
-                        Text("\($worky.workspaces.count) workspaces")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                }.tabItem {
+                    Text("Workspaces")
+                }
+                VStack {
+                    LaunchAtLogin.Toggle()
+                    CheckForUpdatesView(updaterViewModel: UpdaterViewModel())
+                }.tabItem {
+                    Text("Settings")
                 }
             }
         }
