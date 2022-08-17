@@ -97,7 +97,7 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
             
         menu.addItem(
-            withTitle: "Manage workspaces",
+            withTitle: "Preferences",
             action: #selector(showManageWindow),
             keyEquivalent: ""
         ).target = self
