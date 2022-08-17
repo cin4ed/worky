@@ -59,7 +59,7 @@ struct WorkspaceItem: View {
                 }
             }
             .confirmationDialog(
-                "Do you want to move\n[\(workspace.emoji) \(workspace.title)]\nto the trash can?",
+                "Do you want to move\n\"\(workspace.emoji) \(workspace.title)\"\nto the trash can?",
                 isPresented: $presentingAlert) {
                 Button("Move to trash", role: .destructive) {
                     Workspace.deleteWorkspace(workspace)
