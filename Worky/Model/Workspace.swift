@@ -325,4 +325,67 @@ extension Workspace {
         
         return workspaces
     }
+    
+    // MARK: - removeWorkspaceFromDesktop
+    static func removeWorkspaceFromDesktop() -> Void {
+        workspaceLog.info("Emptying desktop.")
+        
+        let fm = FileManager.default
+        
+        let desktopURL = fm
+            .homeDirectoryForCurrentUser
+            .appendingPathComponent("Desktop")
+        
+        workspaceLog.info("Trying to get contents of desktop.")
+        guard let desktopContents = try? fm.contentsOfDirectory(
+            at: desktopURL,
+            includingPropertiesForKeys: nil)
+        else {
+            workspaceLog.error("Could not get contents of desktop. Current workspace: \(WorkyApp.currentWorkspace != nil ? WorkyApp.currentWorkspace!.title : "nil")")
+            return
+        }
+        
+        var desktopIsAWorkspace = false;
+        
+        workspaceLog.info("Checking wheter desktop is workspace or not.")
+        desktopContents.forEach { URL in
+            if URL.path.contains(".worky.json") {
+                workspaceLog.info("Workspace found in desktop.")
+                desktopIsAWorkspace = true
+                return
+            }
+        }
+        
+        if desktopIsAWorkspace {
+            workspaceLog.info("Getting workspace dir url from current workspace at desktop.")
+            
+            // If desktop is a workspace then force unwrap
+            guard let currentWorkspaceURL = WorkyApp.currentWorkspace?.url else {
+                workspaceLog.error("Could not get url from current workspace. There isn't one.")
+                fatalError("Could not get url from current workspace. There isn't one.")
+            }
+            
+            workspaceLog.info("Current workspace url obtained successfully.")
+            
+            // many assumptions here!!!!
+            for URL in desktopContents {
+                workspaceLog.info("Looping through desktop contents to move them into their workspace directory.")
+                
+                // Move everyting except for the fucking .DS_Store file
+                if !URL.path.contains(".DS_Store") {
+                    do {
+                        workspaceLog.info("Trying to move item at: \(URL.path) to \(currentWorkspaceURL.path).")
+                        try fm.moveItem(
+                            at: URL,
+                            to: currentWorkspaceURL.appendingPathComponent(URL.lastPathComponent))
+                    } catch {
+                        workspaceLog.error("Could not move item to new location.")
+                        fatalError("Could not move item at \(URL.path) to \(currentWorkspaceURL.path).")
+                    }
+                }
+            }
+        }
+        
+        WorkyApp.currentWorkspace = nil
+    }
 }

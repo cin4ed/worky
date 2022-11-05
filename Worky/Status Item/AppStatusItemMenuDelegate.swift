@@ -92,6 +92,21 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
                 keyEquivalent: "")
             
             menuItem.isEnabled = true
+            
+            menu.addItem(
+                withTitle: "Empty",
+                action: #selector(emptyDesktop),
+                keyEquivalent: "H"
+            ).target = self
+        } else {
+            
+            let menuItem = menu.addItem(
+                withTitle: "Empty",
+                action: nil,
+                keyEquivalent: "H"
+            )
+            
+            menuItem.isEnabled = false
         }
             
         menu.addItem(.separator())
@@ -173,5 +188,9 @@ class AppStatusItemMenuDelegate: NSObject, NSMenuDelegate {
     // MARK: Quit appplication
     @objc func quitApp() {
         NSApp.terminate(self)
+    }
+    
+    @objc func emptyDesktop() {
+        Workspace.removeWorkspaceFromDesktop()
     }
 }
