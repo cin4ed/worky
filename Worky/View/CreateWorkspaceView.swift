@@ -43,6 +43,7 @@ struct CreateWorkspaceView: View {
                         .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray))
                 }
             }
+            .foregroundColor(.white)
         }
         .buttonStyle(PlainButtonStyle())
         .frame(width: 250, height: nil)
