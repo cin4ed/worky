@@ -85,36 +85,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         WorkyApp.appStatusItemMenu.delegate = WorkyApp.appStatusItemMenuDelegate
         WorkyApp.appStatusItem.menu = WorkyApp.appStatusItemMenu
         
-        // TODO: This is ambiguous
-        // createDirectory will create the directory and the serialization
-        // both if needed.
-        //
-        // if the directory already exists, in this it will, because we moved
-        // it, then it'll not create it.
-        //
-        // then will check for the serialization inside, if needed it'll
-        // create it.
-        newWorkspace.createDirectoryIfNeeded()
-    }
-
-    // MARK: Choose workspace
-    @objc func chooseWorkspace(sender: NSMenuItem) {
-        let workspace = sender.representedObject as! Workspace;
-        workspace.select()
-    }
-    
-    // MARK: Empty desktop
-    @objc func emptyDesktop() {
-        Workspace.removeWorkspaceFromDesktop()
-    }
-   
-    // MARK: Show preferences window
-    @objc func showPreferencesWindow(sender: NSMenuItem) {
-        ManageWindow.shared.bringToFront()
-    }
-    
-    // MARK: Quit appplication
-    @objc func quitApp() {
-        NSApp.terminate(self)
+        WorkyModel.createContainerIfNeeded()
     }
 }
