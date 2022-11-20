@@ -17,4 +17,21 @@ final class WorkyModelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    // Unless modifying the methods to accept a parameter that
+    func testDirectoriesExists() throws {
+        let fm = FileManager.default
+        
+        let dirURL = WorkyModel
+            .containerURL
+            .appendingPathComponent("/TestingWorkyModel")
+        
+        try fm.createDirectory(
+            at: dirURL,
+            withIntermediateDirectories: true
+        )
+        
+        XCTAssert(WorkyModel.directoriesExists())
+        
+        try fm.trashItem(at: dirURL, resultingItemURL: nil)
+    }
 }
