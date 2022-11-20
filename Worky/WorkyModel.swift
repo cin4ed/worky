@@ -8,34 +8,10 @@
 import Foundation
 
 class WorkyModel {
-    // MARK: - Container Logic
-    // The location of the container must be $HOME/Documents/Worky
-    static var containerURL: URL {
-        let url = FileManager
-            .default
-            .homeDirectoryForCurrentUser
-            .appendingPathComponent("Documents/Worky")
-        
-        let fm = FileManager.default
-        
-        // Created if needed
-        do {
-            try fm.createDirectory(
-                at: url,
-                withIntermediateDirectories: true,
-                attributes: nil
-            )
-        } catch {
-            let errorMessage = """
-            Could not create workspace container.
-                Specified location: \(url.path)
-                Error: \(error.localizedDescription)
-            """
-            fatalError(errorMessage)
-        }
-        
-        return url
-    }
+    static let containerURL = FileManager
+        .default
+        .homeDirectoryForCurrentUser
+        .appendingPathComponent("Documents/Worky")
     
     // MARK: - Workspaces Logic
     static var workspaces: [Workspace] {
