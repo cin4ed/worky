@@ -27,6 +27,7 @@
 		9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */; };
 		9F8C742928838F2A004F4C00 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C742828838F2A004F4C00 /* Logger.swift */; };
 		9F922E8A2925855C00869474 /* Paddle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F26B5EB291B10C400B7CB78 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F922E932929F10600869474 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F922E922929F10600869474 /* MenuDelegate.swift */; };
 		9FED81BE28A4963200C77196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		9F8C7424287F42C3004F4C00 /* ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageView.swift; sourceTree = "<group>"; };
 		9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListItem.swift; sourceTree = "<group>"; };
 		9F8C742828838F2A004F4C00 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9F922E922929F10600869474 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				9F13F722289E2B820083FC86 /* SparkleUpdater.swift */,
 				9F3E12BA289C819B00420A94 /* WorkyModel.swift */,
 				9F65A2202845608D00F5319F /* Workspace.swift */,
+				9F922E922929F10600869474 /* MenuDelegate.swift */,
 				9F922E91292850BC00869474 /* Create Workspace */,
 				9F922E90292784D500869474 /* Preferences */,
 				9F65A22928456F2000F5319F /* Model */,
@@ -376,6 +379,7 @@
 				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
 				9F8C7425287F42C3004F4C00 /* ManageView.swift in Sources */,
 				9F3E12BE289C851600420A94 /* WorkspaceItem.swift in Sources */,
+				9F922E932929F10600869474 /* MenuDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
