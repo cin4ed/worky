@@ -115,7 +115,7 @@ class WorkyModel {
             withIntermediateDirectories: true
         )
     }
-    private static func directoriesExists() -> Bool {
+    static func directoriesExists() -> Bool {
         let containerContents = try! FileManager
             .default
             .contentsOfDirectory(at: Self.containerURL, includingPropertiesForKeys: nil)
