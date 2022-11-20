@@ -106,4 +106,13 @@ class WorkyModel {
             newWorkspace.createDirectoryIfNeeded()
         }
     }
+
+    static func createContainerIfNeeded() -> Void {
+        // Won't throw an error because withIntermediateDirectories
+        // is set to true.
+        try! FileManager.default.createDirectory(
+            at: Self.containerURL,
+            withIntermediateDirectories: true
+        )
+    }
 }
