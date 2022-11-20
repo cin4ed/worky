@@ -81,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Set app status item menu
         WorkyApp.appStatusItemMenu = NSMenu(title: "Worky")
-        WorkyApp.appStatusItemMenuDelegate = MenuDelegate()
+        WorkyApp.appStatusItemMenuDelegate = MenuDelegate() as NSMenuDelegate
         WorkyApp.appStatusItemMenu.delegate = WorkyApp.appStatusItemMenuDelegate
         WorkyApp.appStatusItem.menu = WorkyApp.appStatusItemMenu
         
