@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct CreateWorkspaceView: View {
-    
     @State private var name: String = ""
     @State private var emoji: String = "📦"
     @State private var showingPopover = false
@@ -80,10 +79,7 @@ struct CreateWorkspaceView: View {
 }
 
 extension CreateWorkspaceView {
-    
     func createButtonHandler() -> Void {
-        
-        // Only create one if there's a name
         if !$name.wrappedValue.isEmpty {
             
             let workspace = Workspace(
@@ -91,35 +87,25 @@ extension CreateWorkspaceView {
                 emoji: $emoji.wrappedValue
             )
             
-            
-            // Check if there's a workspace with the same name already
-            let existsWorkspaceWithSameName = FileManager.default.fileExists(
-                atPath: WorkyApp.container!.appendingPathComponent(workspace.title).path)
-            
-            if existsWorkspaceWithSameName {
+            if WorkyModel.existsWorkspace(name: workspace.title) {
                 let alert = NSAlert()
                 alert.icon = NSImage(named: "AppIcon")
                 alert.messageText = "A workspace with the same already exists."
                 alert.runModal()
                 return
-            } else {
-                Workspace.createDirectory(for: workspace)
-                Workspace.serialize(workspace)
-                Workspace.selectWorkspace(workspace)
             }
+            
+            workspace.createDirectoryIfNeeded()
+            workspace.select()
         }
         
-        // Reset
         self.name = ""
         self.emoji = "📦"
         
         CreateWorkspaceWindow.shared.close()
-        
-        WorkyModel.shared.update() // Update app model
     }
     
     func cancelButtonHandler() -> Void {
-        // Reset
         self.name = ""
         self.emoji = "📦"
         
