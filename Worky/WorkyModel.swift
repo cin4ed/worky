@@ -72,6 +72,35 @@ class WorkyModel {
         }
     }
     
+    static func makeEveryDirectoryInContainerAWorkspaceExceptForCurrent() {
+        let fm = FileManager.default
+        
+        let contentsOfContainer = try! fm.contentsOfDirectory(
+            at: WorkyModel.containerURL,
+            includingPropertiesForKeys: nil,
+            options: [.skipsHiddenFiles]
+        )
+        
+        for url in contentsOfContainer {
+            // If the url is not a directory skip it
+            if !url.hasDirectoryPath { continue }
+            
+            // If directory has the same name as current
+            if url.lastPathComponent == WorkyModel.currentWorkspace!.title {
+                continue
+            }
+            
+            // If directory is a workspace
+            if Workspace(directoryURL: url) != nil {
+                continue
+            }
+        
+            // If it's not
+            let newWorkspace = Workspace(title: url.lastPathComponent)
+            newWorkspace.createDirectoryIfNeeded()
+        }
+    }
+    
     static func makeEveryDirectoryInContainerAWorkspace() {
         let fm = FileManager.default
         
