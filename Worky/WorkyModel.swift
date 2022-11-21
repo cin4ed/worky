@@ -129,7 +129,7 @@ class WorkyModel {
         return false
     }
     
-    private static func workspacesExists() -> Bool {
+    static func workspacesExists() -> Bool {
         let containerContents = try! FileManager
             .default
             .contentsOfDirectory(at: Self.containerURL, includingPropertiesForKeys: nil)
