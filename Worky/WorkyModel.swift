@@ -72,6 +72,20 @@ class WorkyModel {
         }
     }
     
+    static func existsWorkspace(name: String) -> Bool {
+        let containerContents = try! FileManager
+            .default
+            .contentsOfDirectory(at: WorkyModel.containerURL, includingPropertiesForKeys: nil)
+        
+        for fileURL in containerContents {
+            if name == fileURL.lastPathComponent {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     static func makeEveryDirectoryInContainerAWorkspaceExceptForCurrent() {
         let fm = FileManager.default
         
