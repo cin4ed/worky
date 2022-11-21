@@ -202,9 +202,7 @@ class WorkyModel {
             return SystemState._110
         }
         
-        if x && y && z {
-            return SystemState._111
-        }
+        return SystemState._111
     }
     
     static func directoriesExists() -> Bool {
