@@ -30,6 +30,7 @@
 		9F922E932929F10600869474 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F922E922929F10600869474 /* MenuDelegate.swift */; };
 		9F922E95292A554E00869474 /* WorkyModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F922E94292A554E00869474 /* WorkyModelTests.swift */; };
 		9F922E96292A580500869474 /* WorkyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E12BA289C819B00420A94 /* WorkyModel.swift */; };
+		9F922E99292B876D00869474 /* SystemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F922E98292B876D00869474 /* SystemState.swift */; };
 		9FED81BE28A4963200C77196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		9F8C742828838F2A004F4C00 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9F922E922929F10600869474 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		9F922E94292A554E00869474 /* WorkyModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyModelTests.swift; sourceTree = "<group>"; };
+		9F922E98292B876D00869474 /* SystemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				9F65A2192842DB9200F5319F /* Worky.entitlements */,
 				9F65A21F28431B3000F5319F /* Info.plist */,
 				9F65A2162842DB9200F5319F /* Preview Content */,
+				9F922E98292B876D00869474 /* SystemState.swift */,
 			);
 			path = Worky;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				9F3E12BB289C819B00420A94 /* WorkyModel.swift in Sources */,
 				9F8C7423287F41FA004F4C00 /* ManageWindow.swift in Sources */,
 				9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */,
+				9F922E99292B876D00869474 /* SystemState.swift in Sources */,
 				9F65A2212845608D00F5319F /* Workspace.swift in Sources */,
 				9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */,
 				9F8C742928838F2A004F4C00 /* Logger.swift in Sources */,
