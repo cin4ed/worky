@@ -12,6 +12,51 @@ class MenuDelegate: NSObject, NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
         // Clean the displaying menu
         menu.removeAllItems()
+        
+        WorkyModel.createContainerIfNeeded()
+        
+        let systemState = WorkyModel.getStateOfSystem()
+        
+        var thereAreWorkspaces: Bool
+        var currentWorkspaceExists: Bool
+        
+        switch systemState {
+        case ._000:
+            thereAreWorkspaces = false
+            currentWorkspaceExists = false
+        case ._001:
+            WorkyModel.currentWorkspace!.createDirectoryIfNeeded()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = true
+        case ._010:
+            WorkyModel.updateEveryWorkspaceIfNeeded()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = false
+        case ._011:
+            WorkyModel.updateEveryWorkspaceIfNeeded()
+            WorkyModel.currentWorkspace!.createDirectoryIfNeeded()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = true
+        case ._100:
+            WorkyModel.makeEveryDirectoryInContainerAWorkspace()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = false
+        case ._101:
+            WorkyModel.currentWorkspace!.createDirectoryIfNeeded()
+            WorkyModel.makeEveryDirectoryInContainerAWorkspaceExceptForCurrent()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = true
+        case ._110:
+            WorkyModel.makeEveryDirectoryInContainerAWorkspace()
+            WorkyModel.updateEveryWorkspaceIfNeeded()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = false
+        case ._111:
+            WorkyModel.makeEveryDirectoryInContainerAWorkspaceExceptForCurrent()
+            WorkyModel.updateEveryWorkspaceIfNeeded()
+            thereAreWorkspaces = true
+            currentWorkspaceExists = true
+        }
 
         // Add version number
         var workyVersion: String?
@@ -35,8 +80,6 @@ class MenuDelegate: NSObject, NSMenuDelegate {
             keyEquivalent: "a"
         ).target = self
     
-        // MARK: - here i am
-        
         // Add import as workspace
         menu.addItem(
             withTitle: "Import as workspace",
@@ -47,8 +90,9 @@ class MenuDelegate: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
         
         // Show workspaces not selected if there are
-        let workspaces = WorkyModel.workspaces
-        if workspaces.count > 0 {
+        if thereAreWorkspaces {
+            let workspaces = WorkyModel.workspaces
+            
             menu.addItem(
                 withTitle: "Choose a workspace",
                 action: nil,
@@ -64,11 +108,9 @@ class MenuDelegate: NSObject, NSMenuDelegate {
                 item.representedObject = workspace
                 item.target = self
             }
-            
         }
         
-        // Show current workspace if there's one
-        if WorkyModel.currentWorkspace != nil {
+        if currentWorkspaceExists {
             let workspace = WorkyModel.currentWorkspace!
             
             let menuItem = menu.addItem(
@@ -83,11 +125,9 @@ class MenuDelegate: NSObject, NSMenuDelegate {
                 action: #selector(emptyDesktop),
                 keyEquivalent: "H"
             ).target = self
-            
         }
         
-        // If there's no workspaces and current, show no workspaces available message
-        if WorkyModel.workspaces.count == 0 && WorkyModel.currentWorkspace == nil {
+        if !thereAreWorkspaces {
             menu.addItem(
                 withTitle: "No workspaces available",
                 action: nil,
