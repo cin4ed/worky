@@ -92,6 +92,20 @@ class WorkyModel {
             if !url.hasDirectoryPath { continue }
             
             // Already is a workspace
+    static func updateEveryWorkspaceIfNeeded() -> Void {
+        let fm = FileManager.default
+        
+        let contentsOfContainer = try! fm.contentsOfDirectory(
+            at: WorkyModel.containerURL,
+            includingPropertiesForKeys: nil,
+            options: [.skipsHiddenFiles]
+        )
+        
+        for url in contentsOfContainer {
+            // If the url is not a directory skip it
+            if !url.hasDirectoryPath { continue }
+
+            // If directory is a workspace
             if var workspace = Workspace(directoryURL: url) {
                 // Update it to match directory title
                 if workspace.title != url.lastPathComponent {
@@ -100,13 +114,9 @@ class WorkyModel {
                 }
                 return
             }
-        
-            // It's not a workspace
-            let newWorkspace = Workspace(title: url.lastPathComponent)
-            newWorkspace.createDirectoryIfNeeded()
         }
     }
-
+    
     static func createContainerIfNeeded() -> Void {
         // Won't throw an error because withIntermediateDirectories
         // is set to true.
