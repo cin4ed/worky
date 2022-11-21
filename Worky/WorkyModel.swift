@@ -128,4 +128,18 @@ class WorkyModel {
         
         return false
     }
+    
+    private static func workspacesExists() -> Bool {
+        let containerContents = try! FileManager
+            .default
+            .contentsOfDirectory(at: Self.containerURL, includingPropertiesForKeys: nil)
+        
+        for fileURL in containerContents {
+            if fileURL.hasDirectoryPath && Workspace(directoryURL: fileURL) != nil {
+                return true
+            }
+        }
+        
+        return false
+    }
 }
