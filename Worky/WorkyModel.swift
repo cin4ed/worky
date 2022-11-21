@@ -142,4 +142,17 @@ class WorkyModel {
         
         return false
     }
+    
+    static func currentWorkspaceExists() -> Bool {
+        let desktopURL = FileManager
+            .default
+            .homeDirectoryForCurrentUser
+            .appendingPathComponent("/Desktop")
+        
+        if Workspace(directoryURL: desktopURL) == nil {
+            return false
+        }
+        
+        return true
+    }
 }

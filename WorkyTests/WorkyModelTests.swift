@@ -45,4 +45,17 @@ final class WorkyModelTests: XCTestCase {
         
         workspace.delete()
     }
+    
+    func testCurrentWorkspaceExists() {
+        let fm = FileManager.default
+        
+        let workspace = Workspace(title: "TestCurrentWorkspaceExists")
+        workspace.createDirectoryIfNeeded()
+        workspace.select()
+        
+        XCTAssert(WorkyModel.currentWorkspace != nil)
+        
+        workspace.moveToItsDirectoryIfNeeded()
+        workspace.delete()
+    }
 }
