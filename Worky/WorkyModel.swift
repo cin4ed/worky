@@ -115,6 +115,55 @@ class WorkyModel {
             withIntermediateDirectories: true
         )
     }
+    
+    static func getStateOfSystem() -> SystemState {
+//
+//         The following is a simply data structure to represent the system state:
+//         +---+-------------------+
+//         | x | Directories       |
+//         +---+-------------------+
+//         | y | Workspaces        | -->
+//         +---+-------------------+
+//         | z | Current Workspace |
+//         +---+-------------------+
+//
+        let x = Self.directoriesExists()
+        let y = Self.workspacesExists()
+        let z = Self.currentWorkspaceExists()
+        
+        if !x && !y && !z {
+            return SystemState._000
+        }
+        
+        if !x && !y && z {
+            return SystemState._001
+        }
+        
+        if !x && y && !z {
+            return SystemState._010
+        }
+        
+        if !x && y && z {
+            return SystemState._011
+        }
+        
+        if x && !y && !z {
+            return SystemState._100
+        }
+        
+        if x && !y && z {
+            return SystemState._101
+        }
+        
+        if x && y && !z {
+            return SystemState._110
+        }
+        
+        if x && y && z {
+            return SystemState._111
+        }
+    }
+    
     static func directoriesExists() -> Bool {
         let containerContents = try! FileManager
             .default
