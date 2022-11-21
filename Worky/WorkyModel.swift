@@ -72,18 +72,12 @@ class WorkyModel {
         }
     }
     
-    // MARK: - makeEveryDirectoryInContainerAWorkspace
-    // This big boy right here do the following:
-    //      - creates worky container if needed
-    //      - make every directory in the container a workspace if needed
-    //      - update every .worky.json title to match directory name if needed
     static func makeEveryDirectoryInContainerAWorkspace() {
         let fm = FileManager.default
         
-        // If we get WorkyModel.containerURL, then is ensured it will exists
         let contentsOfContainer = try! fm.contentsOfDirectory(
             at: WorkyModel.containerURL,
-            includingPropertiesForKeys: [.isDirectoryKey],
+            includingPropertiesForKeys: nil,
             options: [.skipsHiddenFiles]
         )
         
@@ -91,7 +85,17 @@ class WorkyModel {
             // If the url is not a directory skip it
             if !url.hasDirectoryPath { continue }
             
-            // Already is a workspace
+            // If directory is a workspace
+            if Workspace(directoryURL: url) != nil {
+                continue
+            }
+        
+            // If it's not
+            let newWorkspace = Workspace(title: url.lastPathComponent)
+            newWorkspace.createDirectoryIfNeeded()
+        }
+    }
+    
     static func updateEveryWorkspaceIfNeeded() -> Void {
         let fm = FileManager.default
         
