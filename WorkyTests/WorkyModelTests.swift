@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Worky
 
 final class WorkyModelTests: XCTestCase {
 
@@ -33,5 +34,15 @@ final class WorkyModelTests: XCTestCase {
         XCTAssert(WorkyModel.directoriesExists())
         
         try fm.trashItem(at: dirURL, resultingItemURL: nil)
+    }
+    
+    func testWorkspacesExists() {
+        let workspace = Workspace(title: "TestWorkspaceExists")
+        
+        workspace.createDirectoryIfNeeded()
+        
+        XCTAssert(WorkyModel.workspacesExists())
+        
+        workspace.delete()
     }
 }
