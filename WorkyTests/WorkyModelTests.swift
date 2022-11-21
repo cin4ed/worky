@@ -18,6 +18,16 @@ final class WorkyModelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    func testCreateContainerIfNeeded() {
+        WorkyModel.createContainerIfNeeded()
+        
+        let containerExists = FileManager
+            .default
+            .fileExists(atPath: WorkyModel.containerURL.path)
+        
+        XCTAssert(containerExists)
+    }
+    
     // Unless modifying the methods to accept a parameter that
     func testDirectoriesExists() throws {
         let fm = FileManager.default
