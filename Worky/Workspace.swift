@@ -192,22 +192,24 @@ struct Workspace: Identifiable, Encodable, Equatable {
         
         // Place a json serialization file of the workspace inside the directory
         // it also updates it
-        do {
-            let jsonData = try JSONEncoder().encode(self)
-            print(self.url.appendingPathComponent(Workspace.fileName).path)
-            FileManager.default.createFile(
-                atPath: self.url.appendingPathComponent(Workspace.fileName).path,
-                contents: jsonData,
-                attributes: nil
-            )
-        } catch {
-            let errorMessage = """
+        if self.title != WorkyModel.currentWorkspace!.title {
+            do {
+                let jsonData = try JSONEncoder().encode(self)
+                print(self.url.appendingPathComponent(Workspace.fileName).path)
+                FileManager.default.createFile(
+                    atPath: self.url.appendingPathComponent(Workspace.fileName).path,
+                    contents: jsonData,
+                    attributes: nil
+                )
+            } catch {
+                let errorMessage = """
             Could not create seriaization for workspace.
                 Workspace: \(self.title)
                 Specified location: \(self.url.appendingPathComponent(Workspace.fileName).path)
                 Error: \(error.localizedDescription)
             """
-            fatalError(errorMessage)
+                fatalError(errorMessage)
+            }
         }
     }
     
