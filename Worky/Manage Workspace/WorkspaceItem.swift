@@ -12,6 +12,7 @@ struct WorkspaceItem: View {
     @State private var presentingAlert = false
     @State private var overExport = false
     @State private var overDelete = false
+    @Binding var updater: Bool
     
     var body: some View {
         HStack {
@@ -59,10 +60,12 @@ struct WorkspaceItem: View {
             }
             .confirmationDialog(
                 "Do you want to move\n\"\(workspace.emoji) \(workspace.title)\"\nto the trash can?",
-                isPresented: $presentingAlert) {
+                isPresented: $presentingAlert
+            ) {
                 Button("Move to trash", role: .destructive) {
                     workspace.delete()
                     presentingAlert = false
+                    updater.toggle()
                 }
             }
         }
