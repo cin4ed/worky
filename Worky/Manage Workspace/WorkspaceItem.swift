@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WorkspaceItem: View {
-    @EnvironmentObject var worky: WorkyModel
     @State var workspace: Workspace
     @State private var presentingAlert = false
     @State private var overExport = false
@@ -62,9 +61,8 @@ struct WorkspaceItem: View {
                 "Do you want to move\n\"\(workspace.emoji) \(workspace.title)\"\nto the trash can?",
                 isPresented: $presentingAlert) {
                 Button("Move to trash", role: .destructive) {
-                    Workspace.deleteWorkspace(workspace)
+                    workspace.delete()
                     presentingAlert = false
-                    worky.update()
                 }
             }
         }

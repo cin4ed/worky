@@ -9,22 +9,19 @@ import SwiftUI
 import LaunchAtLogin
 
 struct ManageView: View {
-    @StateObject private var worky = WorkyModel.shared
-    
     var body: some View {
         VStack(alignment: .leading) {
             TabView {
                 List {
                     Section {
-                        ForEach($worky.workspaces, id: \.id) { $workspace in
+                        ForEach(WorkyModel.workspaces, id: \.id) { workspace in
                             WorkspaceItem(workspace: workspace)
-                                .environmentObject(worky)
                         }
                     } header: {
                         HStack {
                             Text("Workspaces:")
                             Spacer()
-                            Text("\($worky.workspaces.count) workspaces")
+                            Text("\(WorkyModel.workspaces.count) workspaces")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
@@ -42,11 +39,5 @@ struct ManageView: View {
         }
         .frame(maxWidth: 300)
         .padding()
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ManageView()
     }
 }

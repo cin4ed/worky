@@ -23,25 +23,12 @@ struct WorkspaceListItem: View {
             Text(workspace.title)
             Spacer()
             Button {
-                Workspace.deleteWorkspace(workspace)
+                workspace.delete()
             } label: {
                 Image(systemName: "trash.fill")
             }
             .buttonStyle(PlainButtonStyle())
         }
         .padding(5)
-    }
-}
-
-struct WorkspaceListItem_Previews: PreviewProvider {
-    
-    static let workspace = Workspace(
-        title: "Proyecto final escuela",
-        emoji: "🏫",
-        url: URL(fileURLWithPath: "Placeholder"))
-    
-    static var previews: some View {
-        WorkspaceListItem(workspace: Self.workspace)
-            .frame(maxWidth: 300)
     }
 }

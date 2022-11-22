@@ -33,44 +33,64 @@ struct Workspace: Identifiable, Encodable, Equatable {
     }
     
     init?(directoryURL: URL) {
+        let fm = FileManager.default
+        
+        var contentsOfDir: [URL]
+        
+        var title: String!
+        var emoji: String!
+        var id: String!
+        var url: URL!
+        
         do {
-            let fm = FileManager.default
-            
-            let contentsOfDir = try fm.contentsOfDirectory(
+            contentsOfDir = try fm.contentsOfDirectory(
                 at: directoryURL,
                 includingPropertiesForKeys: nil
             )
-            
-            for fileURL in contentsOfDir {
-                if fileURL.hasDirectoryPath { continue }
-                if !fileURL.path.contains(Workspace.fileExtension) { continue }
-                
-                // A file with ".worky.json" in its path exists
-                
-                // Gettin the file data
-                guard let fileData = fm.contents(atPath: fileURL.path) else { return nil }
-                
-                // Getting a json object from the data
-                guard let json = try? JSONSerialization.jsonObject(with: fileData) else { return nil }
-                
-                // Getting a dictionary from the json object
-                guard let dict = json as? [String : String] else { return nil }
-                
-                // Getting the properties
-                guard let title = dict["title"] else { return nil }
-                guard let emoji = dict["emoji"] else { return nil }
-                guard let id = dict["id"] else { return nil }
-                guard let stringURL = dict["url"] else { return nil }
-                guard let url = URL(string: stringURL) else { return nil }
-                
-                self.title = title
-                self.emoji = emoji
-                self.id = id
-                self.url = url
-            }
         } catch {
             return nil
         }
+        
+        for fileURL in contentsOfDir {
+            if fileURL.hasDirectoryPath { continue }
+            if !fileURL.path.contains(Workspace.fileExtension) { continue }
+            
+            // A file with ".worky.json" in its path exists
+            
+            // Gettin the file data
+            guard let fileData = fm.contents(atPath: fileURL.path) else { return nil }
+            
+            // Getting a json object from the data
+            var json: Any
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: fileData)
+            } catch {
+                return nil
+            }
+            
+            // Getting a dictionary from the json object
+            guard let dict = json as? [String : String] else { return nil }
+            
+            // Getting the properties
+            guard let _title = dict["title"] else { return nil }
+            guard let _emoji = dict["emoji"] else { return nil }
+            guard let _id = dict["id"] else { return nil }
+            guard let stringURL = dict["url"] else { return nil }
+            guard let _url = URL(string: stringURL) else { return nil }
+            
+            title = _title
+            emoji = _emoji
+            id = _id
+            url = _url
+        }
+        
+        // This needs to be outside a loop I think?
+        // that's why the added complexity above
+        self.title = title
+        self.emoji = emoji
+        self.id = id
+        self.url = url
     }
     
     // MARK: getContents
