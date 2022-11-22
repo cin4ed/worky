@@ -249,6 +249,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
             
             // Move each file in the desktop to the workspace directory
             for fileURL in desktopContents! {
+                if fileURL.path.contains(".DS_Store") { continue }
                 do {
                     try fm.moveItem(
                         at: fileURL,
