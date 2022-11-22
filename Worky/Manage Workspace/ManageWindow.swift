@@ -18,11 +18,8 @@ class ManageWindow: NSWindow {
             styleMask: [.titled, .fullSizeContentView, .closable],
             backing: .buffered,
             defer: false)
-        
-        self.title = "Worky Settings"
+        self.title = "Worky"
         self.isReleasedWhenClosed = false
-        self.titlebarAppearsTransparent = true
-        self.titleVisibility = .hidden
         self.contentView = NSHostingView(rootView: ManageView())
         self.center()
     }
