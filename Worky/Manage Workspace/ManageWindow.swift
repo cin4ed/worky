@@ -25,6 +25,9 @@ class ManageWindow: NSWindow {
     }
     
     func bringToFront() {
+        // Updates the view
+        self.contentView = NSHostingView(rootView: ManageView())
+        
         NSApp.activate(ignoringOtherApps: true)
         self.makeKeyAndOrderFront(nil)
     }
