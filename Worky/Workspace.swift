@@ -248,7 +248,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
             }
             
             // Move each file in the desktop to the workspace directory
-            for fileUrl in desktopContents! {
+            for fileURL in desktopContents! {
                 do {
                     try fm.moveItem(
                         at: fileUrl,
