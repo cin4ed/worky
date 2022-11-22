@@ -85,6 +85,9 @@ struct Workspace: Identifiable, Encodable, Equatable {
             url = _url
         }
         
+        // hacky fix
+        if title == nil { return nil }
+        
         // This needs to be outside a loop I think?
         // that's why the added complexity above
         self.title = title
