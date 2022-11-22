@@ -173,42 +173,27 @@ class MenuDelegate: NSObject, NSMenuDelegate {
         
         let fm = FileManager.default
         
-        // If the selected directory doesn't contain a serialization, but
-        // there's a directory with the same name inside container already
-        // alert.
-        //
-        // Get path to $HOME/Documents/Worky (WorkyModel.containerURL) and
-        // check if the path to the directory contains this path string.
-        if importURL.path.contains(WorkyModel.containerURL.path) {
-            // TODO: Encapsulate the alert logic and only modify the message
+        // Stop if there's another directory in the container with the same
+        let directoryName = importURL.lastPathComponent
+        let matchInContainer = WorkyModel
+            .containerURL
+            .appendingPathComponent(directoryName)
+            .path
+        
+        if fm.fileExists(atPath: matchInContainer) {
             let alert = NSAlert()
             alert.icon = NSImage(named: "AppIcon")
             alert.messageText = "A directory with the same name already exists in /Documents/Worky, try removing it."
             alert.runModal()
         }
         
-        // If workspace already exists
-        let workspaces = WorkyModel.workspaces
-        
-        for workspace in workspaces {
-            if workspace.title == importURL.lastPathComponent {
-                // This means a directory workspace with the title same
-                // as the directory name exists already in the container.
-                // - the workspace directory could have a different name as the
-                //   imported one, but the serialization title inside this directory
-                //   is the same as the imported directory name.
-                
-                // But it could not have a serialization, and that's why it's not
-                // showing in the menu bar.
-                
-            }
-        }
-        
-        // Move imported directory to container
+        // Move directory into container
         do {
             try fm.moveItem(
                 at: importURL,
-                to: WorkyModel.containerURL.appendingPathComponent(importURL.lastPathComponent)
+                to: WorkyModel
+                    .containerURL
+                    .appendingPathComponent(importURL.lastPathComponent)
             )
         } catch {
             let errorMessage = """
@@ -225,15 +210,6 @@ class MenuDelegate: NSObject, NSMenuDelegate {
             emoji: "📦"
         )
         
-        // TODO: This is ambiguous
-        // createDirectory will create the directory and the serialization
-        // both if needed.
-        //
-        // if the directory already exists, in this it will, because we moved
-        // it, then it'll not create it.
-        //
-        // then will check for the serialization inside, if needed it'll
-        // create it.
         newWorkspace.createDirectoryIfNeeded()
     }
 
