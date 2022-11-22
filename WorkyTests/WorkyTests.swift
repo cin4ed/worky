@@ -16,17 +16,7 @@ class WorkyTests: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testStringWithoutEmojis() {
-        
-        // It doesn't work with numbers idk why :@
-        //let stringWithEmojis = String("1⛑2😃3🫣4")
-        //let expectedString = String("1234")
-        
-        let stringWithEmojis = String("a⛑b😃c🫣d")
-        let expectedString = String("abcd")
-        
-        XCTAssertEqual(stringWithEmojis.removeEmojis(), expectedString)
-    }
+    
     
     func testGetEmojiFile() {
         
