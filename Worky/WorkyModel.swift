@@ -47,7 +47,9 @@ class WorkyModel {
         // With the container contents we now instantiate every workspace
         for fileURL in contentsOfContainer! {
             if fileURL.hasDirectoryPath {
-                workspaces.append(Workspace(directoryURL: fileURL)!)
+                if let workspace = Workspace(directoryURL: fileURL) {
+                    workspaces.append(workspace)
+                }
             }
         }
         
