@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-class CreateWorkspaceWindow: NSWindow {
+class CreateWorkspaceWindow: NSPanel {
     static var shared = CreateWorkspaceWindow()
     
     // This is because:
     // https://stackoverflow.com/questions/33028404/unable-to-focus-on-nstextfields-from-modal-window
-//    override var canBecomeKey: Bool { true }
+    override var canBecomeKey: Bool { true }
     
     private init() {
         super.init(
