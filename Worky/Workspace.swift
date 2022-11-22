@@ -223,7 +223,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
         
         guard let currentWorkspace = WorkyModel.currentWorkspace else { return }
        
-        if self == currentWorkspace {
+        if self.title == currentWorkspace.title {
             let fm = FileManager.default
             
             let desktopURL = fm
