@@ -251,14 +251,14 @@ struct Workspace: Identifiable, Encodable, Equatable {
             for fileURL in desktopContents! {
                 do {
                     try fm.moveItem(
-                        at: fileUrl,
-                        to: WorkyModel.containerURL
+                        at: fileURL,
+                        to: self.url.appendingPathComponent(fileURL.lastPathComponent)
                     )
                 } catch {
                     let errorMessage = """
                     Could not move file to its workspace directory.
-                        File location: \(fileUrl.path)
-                        Destination: \(WorkyModel.containerURL)
+                        File location: \(fileURL.path)
+                        Destination: \(self.url.appendingPathComponent(fileURL.lastPathComponent).path)
                         Error: \(error.localizedDescription)
                     """
                     fatalError(errorMessage)
