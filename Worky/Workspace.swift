@@ -18,7 +18,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
     // we don't need to create a FileManager instance from the caller code
     // everytime, and so we could reduce the probability of creatinga bug.
     
-    static public let fileExtension = ".worky.json"
+    static public let fileName = ".worky.json"
     
     public var title: String
     public var emoji: String
@@ -53,7 +53,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
         
         for fileURL in contentsOfDir {
             if fileURL.hasDirectoryPath { continue }
-            if !fileURL.path.contains(Workspace.fileExtension) { continue }
+            if !fileURL.path.contains(Workspace.fileName) { continue }
             
             // A file with ".worky.json" in its path exists
             
@@ -194,9 +194,9 @@ struct Workspace: Identifiable, Encodable, Equatable {
         // it also updates it
         do {
             let jsonData = try JSONEncoder().encode(self)
-            
+            print(self.url.appendingPathComponent(Workspace.fileName).path)
             FileManager.default.createFile(
-                atPath: self.url.path + Workspace.fileExtension,
+                atPath: self.url.appendingPathComponent(Workspace.fileName).path,
                 contents: jsonData,
                 attributes: nil
             )
@@ -204,7 +204,7 @@ struct Workspace: Identifiable, Encodable, Equatable {
             let errorMessage = """
             Could not create seriaization for workspace.
                 Workspace: \(self.title)
-                Specified location: \(self.url.path + Workspace.fileExtension)
+                Specified location: \(self.url.appendingPathComponent(Workspace.fileName).path)
                 Error: \(error.localizedDescription)
             """
             fatalError(errorMessage)
