@@ -221,7 +221,7 @@ class MenuDelegate: NSObject, NSMenuDelegate {
     
     // MARK: Empty desktop
     @objc func emptyDesktop() {
-//        Workspace.removeWorkspaceFromDesktop()
+        WorkyModel.currentWorkspace!.moveToItsDirectoryIfNeeded()
     }
    
     // MARK: Show preferences window
