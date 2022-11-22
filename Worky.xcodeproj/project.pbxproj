@@ -11,7 +11,6 @@
 		9F13F723289E2B820083FC86 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13F722289E2B820083FC86 /* SparkleUpdater.swift */; };
 		9F13F726289F6D520083FC86 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 9F13F725289F6D520083FC86 /* LaunchAtLogin */; };
 		9F26B5EC291B10C400B7CB78 /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F26B5EB291B10C400B7CB78 /* Paddle.framework */; };
-		9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */; };
 		9F294B51287C01F500D8C025 /* CreateWorkspaceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */; };
 		9F294B5C287D16B300D8C025 /* WorkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F294B5B287D16B300D8C025 /* WorkyTests.swift */; };
 		9F294B63287E6B5100D8C025 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F294B62287E6B5100D8C025 /* emoji.json */; };
@@ -60,7 +59,6 @@
 /* Begin PBXFileReference section */
 		9F13F722289E2B820083FC86 /* SparkleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdater.swift; sourceTree = "<group>"; };
 		9F26B5EB291B10C400B7CB78 /* Paddle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paddle.framework; sourceTree = "<group>"; };
-		9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptExecutor.swift; sourceTree = "<group>"; };
 		9F294B50287C01F500D8C025 /* CreateWorkspaceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceWindow.swift; sourceTree = "<group>"; };
 		9F294B59287D16B300D8C025 /* WorkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F294B5B287D16B300D8C025 /* WorkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkyTests.swift; sourceTree = "<group>"; };
@@ -114,14 +112,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9F294B52287CD82A00D8C025 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9F8C742828838F2A004F4C00 /* Logger.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		9F294B5A287D16B300D8C025 /* WorkyTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,14 +119,6 @@
 				9F922E94292A554E00869474 /* WorkyModelTests.swift */,
 			);
 			path = WorkyTests;
-			sourceTree = "<group>";
-		};
-		9F3E12BC289C84A600420A94 /* Manage workspaces */ = {
-			isa = PBXGroup;
-			children = (
-				9F3E12BD289C851600420A94 /* WorkspaceItem.swift */,
-			);
-			path = "Manage workspaces";
 			sourceTree = "<group>";
 		};
 		9F40BFD9291B0F7500C66CB7 /* Frameworks */ = {
@@ -174,16 +156,15 @@
 				9F3E12BA289C819B00420A94 /* WorkyModel.swift */,
 				9F65A2202845608D00F5319F /* Workspace.swift */,
 				9F922E922929F10600869474 /* MenuDelegate.swift */,
+				9F922E98292B876D00869474 /* SystemState.swift */,
 				9F922E91292850BC00869474 /* Create Workspace */,
-				9F922E90292784D500869474 /* Preferences */,
+				9F922E90292784D500869474 /* Manage Workspace */,
 				9F65A22928456F2000F5319F /* Model */,
-				9F65A22828456F1400F5319F /* View */,
 				9F294B422879049400D8C025 /* Resources */,
 				9F65A2142842DB9200F5319F /* Assets.xcassets */,
 				9F65A2192842DB9200F5319F /* Worky.entitlements */,
 				9F65A21F28431B3000F5319F /* Info.plist */,
 				9F65A2162842DB9200F5319F /* Preview Content */,
-				9F922E98292B876D00869474 /* SystemState.swift */,
 			);
 			path = Worky;
 			sourceTree = "<group>";
@@ -196,32 +177,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9F65A22828456F1400F5319F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9F3E12BC289C84A600420A94 /* Manage workspaces */,
-				9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9F65A22928456F2000F5319F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F294B52287CD82A00D8C025 /* Extensions */,
-				9F294B40287903BE00D8C025 /* AppleScriptExecutor.swift */,
+				9F8C742828838F2A004F4C00 /* Logger.swift */,
 				9F294B64287E6C0B00D8C025 /* Emoji.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9F922E90292784D500869474 /* Preferences */ = {
+		9F922E90292784D500869474 /* Manage Workspace */ = {
 			isa = PBXGroup;
 			children = (
 				9F8C7422287F41FA004F4C00 /* ManageWindow.swift */,
 				9F8C7424287F42C3004F4C00 /* ManageView.swift */,
+				9F3E12BD289C851600420A94 /* WorkspaceItem.swift */,
+				9F8C7426287F9BD0004F4C00 /* WorkspaceListItem.swift */,
 			);
-			path = Preferences;
+			path = "Manage Workspace";
 			sourceTree = "<group>";
 		};
 		9F922E91292850BC00869474 /* Create Workspace */ = {
@@ -386,7 +359,6 @@
 				9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */,
 				9F65A2112842DB9000F5319F /* WorkyApp.swift in Sources */,
 				9F8C7427287F9BD0004F4C00 /* WorkspaceListItem.swift in Sources */,
-				9F294B41287903BE00D8C025 /* AppleScriptExecutor.swift in Sources */,
 				9F8C7425287F42C3004F4C00 /* ManageView.swift in Sources */,
 				9F3E12BE289C851600420A94 /* WorkspaceItem.swift in Sources */,
 				9F922E932929F10600869474 /* MenuDelegate.swift in Sources */,
