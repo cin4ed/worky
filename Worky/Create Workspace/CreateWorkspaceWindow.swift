@@ -22,15 +22,12 @@ class CreateWorkspaceWindow: NSPanel {
             backing: .buffered,
             defer: false)
         
-//        self.isFloatingPanel = true
+        self.isFloatingPanel = true
         self.level = .floating
         self.isOpaque = false
         self.backgroundColor = .clear
         self.titleVisibility = .hidden
         self.styleMask.remove(.titled)
-        self.isMovableByWindowBackground = true
-        self.isReleasedWhenClosed = false
-        
         self.title = "Worky"
         
         self.contentView = NSHostingView(rootView: CreateWorkspaceView())
