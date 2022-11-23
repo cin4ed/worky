@@ -219,8 +219,8 @@ struct Workspace: Identifiable, Encodable, Equatable {
     }
     
     // MARK: moveToItsDirectoryIfNeeded
-    // If the workspace is the current one, it will the workspace contents in the
-    // desktop into the workspace directory
+    // If the workspace is the current one, it will put the desktop's contents
+    // into the workspace directory
     func moveToItsDirectoryIfNeeded() {
         self.createDirectoryIfNeeded()
         
@@ -253,19 +253,30 @@ struct Workspace: Identifiable, Encodable, Equatable {
             // Move each file in the desktop to the workspace directory
             for fileURL in desktopContents! {
                 if fileURL.path.contains(".DS_Store") { continue }
-                do {
-                    try fm.moveItem(
-                        at: fileURL,
-                        to: self.url.appendingPathComponent(fileURL.lastPathComponent)
-                    )
-                } catch {
-                    let errorMessage = """
+                if fileURL.path.contains(".worky.json") {
+                    do {
+                        try fm.moveItem(
+                            at: fileURL,
+                            to: self.url.appendingPathComponent(fileURL.lastPathComponent)
+                        )
+                    } catch {
+                        try? fm.trashItem(at: fileURL, resultingItemURL: nil)
+                    }
+                } else {
+                    do {
+                        try fm.moveItem(
+                            at: fileURL,
+                            to: self.url.appendingPathComponent(fileURL.lastPathComponent)
+                        )
+                    } catch {
+                        let errorMessage = """
                     Could not move file to its workspace directory.
                         File location: \(fileURL.path)
                         Destination: \(self.url.appendingPathComponent(fileURL.lastPathComponent).path)
                         Error: \(error.localizedDescription)
                     """
-                    fatalError(errorMessage)
+                        fatalError(errorMessage)
+                    }
                 }
             }
         }
