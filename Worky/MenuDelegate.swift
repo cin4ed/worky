@@ -20,6 +20,17 @@ class MenuDelegate: NSObject, NSMenuDelegate {
         var thereAreWorkspaces: Bool
         var currentWorkspaceExists: Bool
         
+        //
+        //         The following is a simply data structure to represent the system state:
+        //         +---+-------------------+
+        //         | x | Directories       |
+        //         +---+-------------------+
+        //         | y | Workspaces        |              _xyz
+        //         +---+-------------------+
+        //         | z | Current Workspace |
+        //         +---+-------------------+
+        //
+        
         switch systemState {
         case ._000:
             thereAreWorkspaces = false

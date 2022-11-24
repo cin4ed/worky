@@ -9,7 +9,6 @@ import SwiftUI
 import AppKit
 import Paddle
 
-let paddleSet = true
 
 @main
 struct WorkyApp: App {
