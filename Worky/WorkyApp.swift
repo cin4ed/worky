@@ -7,8 +7,9 @@
 
 import SwiftUI
 import AppKit
-import Paddle
+//import Paddle
 
+//let paddleSet = false
 
 @main
 struct WorkyApp: App {
@@ -43,37 +44,43 @@ struct WorkyApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
-        if paddleSet {
-            // Paddle stuff
-            let myPaddleVendorID = "160105"
-            let myPaddleProductID = "800331"
-            let myPaddleAPIKey = "f1dc11635b7bcff08ba69753c5590f3b"
-            
-            // Default Product Config in case we're unable to reach our servers on first run
-            let defaultProductConfig = PADProductConfiguration()
-            defaultProductConfig.productName = "Worky"
-            defaultProductConfig.vendorName = "BetweenFrames"
-            
-            // Initialize the SDK singleton with the config
-            let paddle = Paddle.sharedInstance(
-                withVendorID: myPaddleVendorID,
-                apiKey: myPaddleAPIKey,
-                productID: myPaddleProductID,
-                configuration: defaultProductConfig,
-                delegate:nil)
-            
-            // Initialize the Product you'd like to work with
-            let paddleProduct = PADProduct(
-                productID: myPaddleProductID,
-                productType: PADProductType.sdkProduct,
-                configuration: defaultProductConfig)
-            
-            // Ask the Product to get its latest state and info from the Paddle Platform
-            paddleProduct?.refresh({ (delta: [AnyHashable : Any]?, error: Error?) in
-                // Optionally show the default "Product Access" UI to gatekeep your app
-                paddle?.showProductAccessDialog(with: paddleProduct!)
-            })
-        }
+//        if paddleSet {
+//            // Paddle stuff
+//            let myPaddleVendorID = "160105"
+//            let myPaddleProductID = "800331"
+//            let myPaddleAPIKey = "f1dc11635b7bcff08ba69753c5590f3b"
+//
+//            // Paddle sandbox
+//            Paddle.setEnvironmentToSandbox()
+//            let myPaddleVendorID = "9003"
+//            let myPaddleProductID = "38374"
+//            let myPaddleAPIKey = "39bb5fd80a7d320fdaf2ba0e230a49061e3e9535864150c491"
+//
+//            // Default Product Config in case we're unable to reach our servers on first run
+//            let defaultProductConfig = PADProductConfiguration()
+//            defaultProductConfig.productName = "Worky"
+//            defaultProductConfig.vendorName = "BetweenFrames"
+//
+//            // Initialize the SDK singleton with the config
+//            let paddle = Paddle.sharedInstance(
+//                withVendorID: myPaddleVendorID,
+//                apiKey: myPaddleAPIKey,
+//                productID: myPaddleProductID,
+//                configuration: defaultProductConfig,
+//                delegate:nil)
+//
+//            // Initialize the Product you'd like to work with
+//            let paddleProduct = PADProduct(
+//                productID: myPaddleProductID,
+//                productType: PADProductType.sdkProduct,
+//                configuration: defaultProductConfig)
+//
+//            // Ask the Product to get its latest state and info from the Paddle Platform
+//            paddleProduct?.refresh({ (delta: [AnyHashable : Any]?, error: Error?) in
+//                // Optionally show the default "Product Access" UI to gatekeep your app
+//                paddle?.showProductAccessDialog(with: paddleProduct!)
+//            })
+//        }
         
         // Set app status item
         WorkyApp.appStatusItem = WorkyApp
