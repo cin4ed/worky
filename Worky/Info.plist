@@ -2,13 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSUIElement</key>
-	<true/>
 	<key>SUFeedURL</key>
 	<string>https://worky.betweenframes.net/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>lIdQw5ZIDjQkXqcy6DBlQJFd/bP3pH7eftOhvvYTgwI=</string>
-	<key>CFBundleVersion</key>
-	<string>1.2.0</string>
 </dict>
 </plist>
