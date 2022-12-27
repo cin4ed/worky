@@ -35,11 +35,6 @@ struct WorkyApp: App {
     
     var body: some Scene {
         Settings { EmptyView() }
-            .commands {
-                CommandGroup(after: .appInfo) {
-                    CheckForUpdatesView(updater: Self.updaterController.updater)
-                }
-            }
     }
 }
 
