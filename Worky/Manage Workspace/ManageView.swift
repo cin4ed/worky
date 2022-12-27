@@ -42,7 +42,7 @@ struct ManageView: View {
                 }
                 VStack {
                     LaunchAtLogin.Toggle()
-                    CheckForUpdatesView(updaterViewModel: UpdaterViewModel())
+                    CheckForUpdatesView(updater: WorkyApp.updaterController.updater-)
                 }.tabItem {
                     Text("Settings")
                 }

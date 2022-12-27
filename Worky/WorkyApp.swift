@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppKit
+import Sparkle
 //import Paddle
 
 //let paddleSet = false
@@ -29,14 +30,14 @@ struct WorkyApp: App {
     static var appStatusItemMenu: NSMenu!
     static var appStatusItemMenuDelegate: NSMenuDelegate!
     
-    @StateObject var updaterViewModel = UpdaterViewModel()
+    static let updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     @NSApplicationDelegateAdaptor private var appDelegate: AppDelegate
-
+    
     var body: some Scene {
         Settings { EmptyView() }
             .commands {
                 CommandGroup(after: .appInfo) {
-                    CheckForUpdatesView(updaterViewModel: updaterViewModel)
+                    CheckForUpdatesView(updater: Self.updaterController.updater)
                 }
             }
     }
