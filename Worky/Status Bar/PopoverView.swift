@@ -17,63 +17,80 @@ struct WSWorkspace {
 let workspaces: [WSWorkspace] = [
     WSWorkspace(id: "123", name: "School", itemCount: 5, emoji: "🏫"),
     WSWorkspace(id: "100", name: "Work", itemCount: 3, emoji: "🧳"),
-    WSWorkspace(id: "dfj", name: "Developer", itemCount: 10, emoji: "🧑‍💻"),
+    WSWorkspace(id: "dfj", name: "Developer", itemCount: 10, emoji: "💻"),
     WSWorkspace(id: "oie", name: "Books", itemCount: 7, emoji: "📚"),
-    WSWorkspace(id: "lak", name: "Test", itemCount: 3, emoji: "📚"),
-    WSWorkspace(id: "laksd", name: "Test2", itemCount: 10, emoji: "📚"),
-    WSWorkspace(id: "lkaj", name: "Test3", itemCount: 33, emoji: "📚"),
-    WSWorkspace(id: "joj", name: "Test4", itemCount: 12, emoji: "📚"),
-    WSWorkspace(id: "oio", name: "Test5", itemCount: 49, emoji: "📚"),
-    WSWorkspace(id: "qioo", name: "Test6", itemCount: 11, emoji: "📚")
+    WSWorkspace(id: "lak", name: "Cooking", itemCount: 3, emoji: "🍳"),
+    WSWorkspace(id: "laksd", name: "Movies", itemCount: 10, emoji: "🍿"),
+    WSWorkspace(id: "lkaj", name: "Writing", itemCount: 33, emoji: "✍️"),
+    WSWorkspace(id: "joj", name: "Games", itemCount: 12, emoji: "🎮"),
+    WSWorkspace(id: "oio", name: "Blog", itemCount: 49, emoji: "🧑‍💻"),
+    WSWorkspace(id: "qioo", name: "Drawing", itemCount: 11, emoji: "🎨")
 ]
+
+let currentWorkspace: WSWorkspace = WSWorkspace(
+    id: "qwer",
+    name: "Testing",
+    itemCount: 20,
+    emoji: "⭐️"
+)
 
 struct PopoverView: View {
     @State private var hoveredIndex: Int? = nil
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                ForEach(Array(workspaces.enumerated()), id: \.element.name) { index, workspace in
-                    HStack {
-                        Text(workspace.emoji)
-                            .font(.title)
-                        VStack(alignment: .leading) {
-                            Text("\(workspace.name)")
-                                .font(.headline)
-                            Text("\(workspace.itemCount) items")
-                                .font(.subheadline)
-                        }
-                        Spacer()
-                    }
+        VStack {
+            HStack {
+                Button {} label: {
+                    Text("Create new")
                     .frame(maxWidth: .infinity)
-                    .padding(10)
-                    .background(hoveredIndex == index ? Color.gray.opacity(0.2) : Color.gray.opacity(0.0))
-                    .onHover { isHovering in
-                        hoveredIndex = isHovering ? index : nil
-                    }
-                    
-                    Divider()
                 }
-                
-    //            Button("Quit") {
-    //                NSApplication.shared.terminate(nil)
-    //            }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                Button {} label: {
+                    Image(systemName: "gear")
+                }
+                    .buttonStyle(.bordered)
+                    .controlSize(.large)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("CURRENT")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                WorkspaceItemView(workspace: currentWorkspace)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color.primary.opacity(0.15))
+                    )
+            }
+            Spacer()
+                .frame(height: 10)
+            HStack {
+                Text("WORKSPACES")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    ForEach(Array(workspaces.enumerated()), id: \.element.name) { index, workspace in
+                        WorkspaceItemView(workspace: workspace)
+                        .background(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(hoveredIndex == index ? Color.gray.opacity(0.12) : Color.clear)
+                            )
+                        .onHover { isHovering in
+                            hoveredIndex = isHovering ? index : nil
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            }
         }
-        .frame(width: 330, height: 350, alignment: .top)
-        .background(
-            VisualEffectView(
-                material: .toolTip,
-                blendingMode: .behindWindow,
-                state: .active
-            )
-        )
-        .cornerRadius(15)
-        .overlay(
-            RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.white.opacity(0.1), lineWidth: 1.5)
-        )
+        .padding(10)
     }
 }
 

@@ -9,12 +9,9 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
-    var popoverWindow: NSWindow?
+    var popover: NSPopover!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Create the content view for the custom window
-        let contentView = NSHostingView(rootView: PopoverView())
-
         // Create the status bar item
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
@@ -23,38 +20,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(_:))
         }
 
-        // Initialize the custom window
-        popoverWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 330, height: 350),
-            styleMask: .borderless,
-            backing: .buffered,
-            defer: false
-        )
-        
-        popoverWindow?.isReleasedWhenClosed = false
-        popoverWindow?.hasShadow = true
-        popoverWindow?.level = .floating
-        popoverWindow?.isOpaque = false
-        popoverWindow?.backgroundColor = .clear
-        
-        popoverWindow?.contentView = contentView
+        // Initialize the popover
+        popover = NSPopover()
+        popover.contentViewController = NSHostingController(rootView: PopoverView());
+        popover.behavior = .transient
+        popover.contentSize = NSSize(width: 300, height: 350)
       }
     
     @objc func togglePopover(_ sender: AnyObject?) {
-        guard let button = statusBarItem.button, let window = popoverWindow else { return }
-        
-        if window.isVisible {
-            window.orderOut(nil)
-        } else {
-            // Position the window relative to the status bar item
-            let buttonFrame = button.window?.frame ?? .zero
-            let buttonOrigin = NSPoint(
-                x: buttonFrame.origin.x - window.frame.width + 35,
-                y: buttonFrame.origin.y - 5
-            )
-            window.setFrameTopLeftPoint(buttonOrigin)
-            window.makeKeyAndOrderFront(true)
-            NSApp.activate(ignoringOtherApps: true)
+        if let button = statusBarItem.button {
+            if popover.isShown {
+                popover.performClose(sender)
+            } else {
+                // Show the popover relative to the status bar item
+                popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+                
+                // Make the popover key
+                popover.contentViewController?.view.window?.makeKey()
+            }
         }
     }
 }
