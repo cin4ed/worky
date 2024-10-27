@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "gemojipicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Goeun1001/GEmojiPicker",
+      "state" : {
+        "revision" : "eedaf51a0150fa2ba1db918589a94e4fe1e950e5",
+        "version" : "1.0.1"
+      }
+    },
+    {
       "identity" : "sparkle",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",

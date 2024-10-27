@@ -14,11 +14,11 @@ struct Workspace: Identifiable, Equatable, Encodable, Decodable {
     public var itemCount: Int
     public var url: URL
     
-    init(name: String, emoji: String, itemCount: Int = 0, url: URL) {
+    init(name: String, emoji: String, itemCount: Int = 0, url: URL? = nil) {
         self.name = name
         self.emoji = emoji
         self.itemCount = itemCount
-        self.url = url
+        self.url = url ?? FileManager.default.temporaryDirectory
     }
     
     init(name: String, emoji: String) {

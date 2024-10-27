@@ -18,6 +18,8 @@
 		9F65A2132842DB9000F5319F /* CreateWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2122842DB9000F5319F /* CreateWorkspaceView.swift */; };
 		9F65A2182842DB9200F5319F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2172842DB9200F5319F /* Preview Assets.xcassets */; };
 		9F65A2212845608D00F5319F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F65A2202845608D00F5319F /* Workspace.swift */; };
+		9F7F32652CCB5747004CAC51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F32642CCB5747004CAC51 /* SettingsView.swift */; };
+		9F7F32732CCC38DC004CAC51 /* GEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9F7F32722CCC38DC004CAC51 /* GEmojiPicker */; };
 		9F8310CD2CC16F9C0037BE83 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8310CC2CC16F9C0037BE83 /* Sparkle */; };
 		9F8310EF2CC1A41C0037BE83 /* WorkspaceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8310EE2CC1A41C0037BE83 /* WorkspaceItemView.swift */; };
 		9F8310F32CC1B1390037BE83 /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8310F22CC1B1390037BE83 /* WorkspaceTests.swift */; };
@@ -30,6 +32,8 @@
 		9FA790732CBF1860001835E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA790722CBF1860001835E6 /* AppDelegate.swift */; };
 		9FA790762CBF19D6001835E6 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA790752CBF19D6001835E6 /* PopoverView.swift */; };
 		9FA98FD12CC04EE4006E6678 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA98FD02CC04EE4006E6678 /* VisualEffectView.swift */; };
+		9FC395AE2CC7B2DC0010A69F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC395AD2CC7B2DC0010A69F /* MainView.swift */; };
+		9FC395B02CC7B3C40010A69F /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC395AF2CC7B3C40010A69F /* CreateView.swift */; };
 		9FED81BE28A4963200C77196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65A2142842DB9200F5319F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +74,7 @@
 		9F65A2192842DB9200F5319F /* Worky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Worky.entitlements; sourceTree = "<group>"; };
 		9F65A21F28431B3000F5319F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9F65A2202845608D00F5319F /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
+		9F7F32642CCB5747004CAC51 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9F8310C92CC16E990037BE83 /* Worky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8310CA2CC16E990037BE83 /* WorkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8310EE2CC1A41C0037BE83 /* WorkspaceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceItemView.swift; sourceTree = "<group>"; };
@@ -82,6 +87,8 @@
 		9FA790722CBF1860001835E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FA790752CBF19D6001835E6 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		9FA98FD02CC04EE4006E6678 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		9FC395AD2CC7B2DC0010A69F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9FC395AF2CC7B3C40010A69F /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F8310CD2CC16F9C0037BE83 /* Sparkle in Frameworks */,
+				9F7F32732CCC38DC004CAC51 /* GEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				9F65A2102842DB9000F5319F /* WorkyApp.swift */,
+				9FA790722CBF1860001835E6 /* AppDelegate.swift */,
+				9FC395B12CC8F5B60010A69F /* Popover */,
 				9FA790742CBF1999001835E6 /* Status Bar */,
 				9F8310F02CC1AD440037BE83 /* Model */,
 				9FA98FCF2CC04EC3006E6678 /* Utilities */,
@@ -192,8 +202,6 @@
 		9FA790742CBF1999001835E6 /* Status Bar */ = {
 			isa = PBXGroup;
 			children = (
-				9FA790722CBF1860001835E6 /* AppDelegate.swift */,
-				9FA790752CBF19D6001835E6 /* PopoverView.swift */,
 				9F8310EE2CC1A41C0037BE83 /* WorkspaceItemView.swift */,
 			);
 			path = "Status Bar";
@@ -205,6 +213,17 @@
 				9FA98FD02CC04EE4006E6678 /* VisualEffectView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9FC395B12CC8F5B60010A69F /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				9FA790752CBF19D6001835E6 /* PopoverView.swift */,
+				9FC395AD2CC7B2DC0010A69F /* MainView.swift */,
+				9FC395AF2CC7B3C40010A69F /* CreateView.swift */,
+				9F7F32642CCB5747004CAC51 /* SettingsView.swift */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +264,7 @@
 			name = Worky;
 			packageProductDependencies = (
 				9F8310CC2CC16F9C0037BE83 /* Sparkle */,
+				9F7F32722CCC38DC004CAC51 /* GEmojiPicker */,
 			);
 			productName = Worky;
 			productReference = 9F8310C92CC16E990037BE83 /* Worky.app */;
@@ -280,6 +300,7 @@
 			mainGroup = 9F65A2042842DB9000F5319F;
 			packageReferences = (
 				9F8310CB2CC16F9C0037BE83 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				9F7F32712CCC38DC004CAC51 /* XCRemoteSwiftPackageReference "GEmojiPicker" */,
 			);
 			productRefGroup = 9F65A2042842DB9000F5319F;
 			projectDirPath = "";
@@ -349,9 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F7F32652CCB5747004CAC51 /* SettingsView.swift in Sources */,
 				9FA790762CBF19D6001835E6 /* PopoverView.swift in Sources */,
 				9F3E12BB289C819B00420A94 /* WorkyModel.swift in Sources */,
 				9F8C7423287F41FA004F4C00 /* ManageWindow.swift in Sources */,
+				9FC395AE2CC7B2DC0010A69F /* MainView.swift in Sources */,
 				9F294B65287E6C0B00D8C025 /* Emoji.swift in Sources */,
 				9F922E99292B876D00869474 /* SystemState.swift in Sources */,
 				9FA98FD12CC04EE4006E6678 /* VisualEffectView.swift in Sources */,
@@ -365,6 +388,7 @@
 				9F8C7425287F42C3004F4C00 /* ManageView.swift in Sources */,
 				9F3E12BE289C851600420A94 /* WorkspaceItem.swift in Sources */,
 				9F922E932929F10600869474 /* MenuDelegate.swift in Sources */,
+				9FC395B02CC7B3C40010A69F /* CreateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +408,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 188;
+				CURRENT_PROJECT_VERSION = 246;
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -401,7 +425,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 188;
+				CURRENT_PROJECT_VERSION = 246;
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -545,7 +569,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 188;
+				CURRENT_PROJECT_VERSION = 246;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -585,7 +609,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 188;
+				CURRENT_PROJECT_VERSION = 246;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -646,6 +670,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9F7F32712CCC38DC004CAC51 /* XCRemoteSwiftPackageReference "GEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Goeun1001/GEmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		9F8310CB2CC16F9C0037BE83 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -657,6 +689,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9F7F32722CCC38DC004CAC51 /* GEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F7F32712CCC38DC004CAC51 /* XCRemoteSwiftPackageReference "GEmojiPicker" */;
+			productName = GEmojiPicker;
+		};
 		9F8310CC2CC16F9C0037BE83 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9F8310CB2CC16F9C0037BE83 /* XCRemoteSwiftPackageReference "Sparkle" */;

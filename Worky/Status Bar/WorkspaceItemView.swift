@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkspaceItemView: View {
-    var workspace: WSWorkspace!
+    var workspace: Workspace!
 
     var body: some View {
         HStack {
