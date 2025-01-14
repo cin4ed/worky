@@ -29,9 +29,3 @@ struct PopoverView: View {
         .padding(10)
     }
 }
-
-//struct PopoverView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PopoverView()
-//    }
-//}

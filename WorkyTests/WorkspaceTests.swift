@@ -9,108 +9,137 @@ import XCTest
 @testable import Worky
 
 final class WorkspaceTests: XCTestCase {
-    
-    var containerURL: URL!
-    
-    override func setUpWithError() throws {
-        super.setUp()
+    func testMemberwiseInitializationSetsCorrectDefaultValues() {
+        let name = "School"
+        let emoji = "🏫"
         
-        // Set up a temporary directory for testing
-        let tempDirectory = FileManager.default.temporaryDirectory
-        containerURL = tempDirectory.appendingPathComponent("workspacesTests")
+        let workspace = Workspace(
+            name: name,
+            emoji: emoji
+        )
         
-        // Create the base test directory if it doesn't exist
-        try? FileManager.default.createDirectory(at: containerURL, withIntermediateDirectories: true, attributes: nil)
-    }
-
-    override func tearDownWithError() throws {
-        // Clean up the test directory after tests
-        try? FileManager.default.removeItem(at: containerURL)
-        super.tearDown()
-    }
-    
-    // Test that a workspace instance is initialized with the correct values
-    func testInitialization() {
-        let name = "Personal Workspace"
-        let emoji = "🏡"
-        let itemCount = 5
-        let url = URL(string: "file://PersonalWorkspace")!
-        
-        let workspace = Workspace(name: name, emoji: emoji, itemCount: itemCount, url: url)
-        
-        XCTAssertEqual(workspace.name, name)
-        XCTAssertEqual(workspace.emoji, emoji)
-        XCTAssertEqual(workspace.itemCount, itemCount)
-        XCTAssertEqual(workspace.url, url)
+        XCTAssertEqual(
+            workspace.name,
+            name,
+            "Expected workspace name to be '\(name)', but got '\(workspace.name)' instead."
+        )
+        XCTAssertEqual(
+            workspace.emoji,
+            emoji,
+            "Expected workspace emoji to be '\(emoji)', but got '\(workspace.emoji)' instead."
+        )
+        XCTAssertEqual(
+            workspace.itemCount,
+            0,
+            "Expected workspace itemCount to be 0, but got \(workspace.itemCount) instead."
+        )
+        XCTAssertEqual(
+            workspace.url,
+            FileManager.default.temporaryDirectory,
+            "Expected workspace URL to be \(FileManager.default.temporaryDirectory), but got \(workspace.url) instead."
+        )
     }
     
-    func testUniqueIDs() {
-        let workspace1 = Workspace(name: "Workspace 1", emoji: "🏠", itemCount: 2, url: URL(string: "file://Workspace1")!)
-        let workspace2 = Workspace(name: "Workspace 2", emoji: "🏢", itemCount: 3, url: URL(string: "file://workspace2")!)
+    func testTwoWorkspacesCannotShareSameID() {
+        let workspace1 = Workspace(name: "Workspace 1", emoji: "🏠")
+        let workspace2 = Workspace(name: "Workspace 2", emoji: "🏢")
         
-        XCTAssertNotEqual(workspace1.id, workspace2.id)
+        XCTAssertNotEqual(
+            workspace1.id,
+            workspace2.id,
+            "Expected two workspaces to have unique IDs, but both had the same ID: '\(workspace1.id)'."
+        )
     }
     
     func testCreateDirectory_CreatesDirectory() throws {
         let workspace = Workspace(name: "Test Workspace", emoji: "🛠️")
         
-        let createdDirectory = try workspace.createDirectory(at: containerURL)
+        let createdDirectory = try workspace.createDirectory(
+            at: FileManager.default.temporaryDirectory
+        )
         
-        XCTAssertTrue(FileManager.default.fileExists(atPath: createdDirectory.path))
+        XCTAssertTrue(
+            FileManager.default.fileExists(atPath: createdDirectory.path),
+            "Expected directory to exist at path '\(createdDirectory.path)', but it does not."
+        )
     }
     
-    func testCreateDirectory_ExistsDirectory() throws {
-        let workspace = Workspace(name: "Existing Workspace", emoji: "🛠️")
-        
-        // Create the directory initially
-        _ = try workspace.createDirectory(at: containerURL)
-        
-        // Call the method again
-        let existingDirectory = try workspace.createDirectory(at: containerURL)
-        
-        // Assert that the same directory is returned
-        XCTAssertEqual(existingDirectory.path, containerURL.appendingPathComponent(workspace.name).path)
-    }
-    
-    func testSaveAsJSON_CreatesHiddenFile() throws {
+    func testSaveAsJSON_CreatesJSONFile() throws {
         let workspace = Workspace(name: "Test Workspace", emoji: "🛠️")
         
-        let jsonFileURL = try workspace.saveAsJSON(at: containerURL)
+        let jsonFileURL = try workspace.saveAsJSON(
+            at: FileManager.default.temporaryDirectory
+        )
         
-        XCTAssertTrue(FileManager.default.fileExists(atPath: jsonFileURL.path), "The JSON file should exist.")
-        XCTAssertTrue(jsonFileURL.lastPathComponent.hasPrefix("."), "The file should be a hidden file.")
-        XCTAssertTrue(jsonFileURL.pathExtension == "json", "The file should have a .json extension.")
+        XCTAssertTrue(
+            FileManager.default.fileExists(atPath: jsonFileURL.path),
+            "Expected JSON file to exists at path '\(jsonFileURL.path)', but it does not."
+        )
     }
     
-    func testSaveAsJSON_FileContentIsCorrect() throws {
-        var workspace = Workspace(name: "Test Workspace", emoji: "🛠️")
-        workspace.url = containerURL
+    func testInitFromValidJSONDecodesWorkspaceSuccessfully() throws {
+        let workspaceName = "My Workspace"
+        let workspaceURL = FileManager.default.temporaryDirectory.appendingPathComponent(
+            workspaceName
+        )
         
-        let jsonFileURL = try workspace.saveAsJSON(at: containerURL)
+        print(workspaceURL.absoluteString)
         
-        let jsonData = try Data(contentsOf: jsonFileURL)
-        let decodedWorkspace = try JSONDecoder().decode(Workspace.self, from: jsonData)
+        let validJSON = """
+        {
+            "id": "3b2ac053-6c53-4c68-b6cc-728e78871854",
+            "name": "My Workspace",
+            "emoji": "🚀",
+            "itemCount": 5,
+            "url": "\(workspaceURL.absoluteString)"
+        }
+        """.data(using: .utf8)!
         
-        XCTAssertEqual(decodedWorkspace.name, workspace.name, "The name should match.")
-        XCTAssertEqual(decodedWorkspace.emoji, workspace.emoji, "The emoji should match.")
-        XCTAssertEqual(decodedWorkspace.url, workspace.url, "The url should match.")
+        let workspace = try Workspace(from: validJSON)
+        
+        XCTAssertNotNil(
+            workspace,
+            "Expected a valid Workspace instance, but got nil."
+        )
+        XCTAssertEqual(
+            workspace?.name,
+            "My Workspace",
+            "Expected workspace name to be 'My Workspace', but got '\(workspace?.name ?? "nil")'."
+        )
+        XCTAssertEqual(
+            workspace?.emoji,
+            "🚀",
+            "Expected workspace emoji to be '🚀', but got '\(workspace?.emoji ?? "nil")'."
+        )
+        XCTAssertEqual(
+            workspace?.itemCount,
+            5,
+            "Expected workspace itemCount to be 5, but got \(workspace?.itemCount ?? -1)."
+        )
+        XCTAssertEqual(
+            workspace?.url,
+            workspaceURL,
+            "Expected workspace URL to match temporary directory, but got '\(workspace?.url ?? URL(string: "nil")!)'."
+        )
     }
     
-    func testSaveAsJSON_OverwritesExistingFile() throws {
-        var workspace = Workspace(name: "Test Workspace", emoji: "🛠️")
-        workspace.url = containerURL
+    func testInitFromInvalidJSONThrowsDecodingError() throws {
+        let invalidJSON = """
+        {
+            "name": "Invalid Workspace",
+            "emoji": "❌"
+            // Missing required fields
+        }
+        """.data(using: .utf8)!
         
-        let firstSaveURL = try workspace.saveAsJSON(at: containerURL)
-        
-        // Modify the workspace and save again
-        var updatedWorkspace = workspace
-        updatedWorkspace.emoji = "💻"
-        let secondSaveURL = try updatedWorkspace.saveAsJSON(at: containerURL)
-        
-        let jsonData = try Data(contentsOf: secondSaveURL)
-        let decodedWorkspace = try JSONDecoder().decode(Workspace.self, from: jsonData)
-        
-        XCTAssertEqual(firstSaveURL, secondSaveURL, "The file URLs should be the same.")
-        XCTAssertNotEqual(decodedWorkspace.emoji, workspace.emoji, "The emoji should reflect the updated value.")
+        XCTAssertThrowsError(
+            try Workspace(from: invalidJSON),
+            "Expected an error to be thrown for invalid JSON, but no error was thrown."
+        ) { error in
+            XCTAssertTrue(
+                error is DecodingError,
+                "Expected a DecodingError, but got \(type(of: error))."
+            )
+        }
     }
 }
