@@ -1,0 +1,15 @@
+{
+  "originHash" : "39e98dd12fe480d85f67bd7e2c8a1da6bcba5f87df1d548ff13869b4490d34ae",
+  "pins" : [
+    {
+      "identity" : "gemojipicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Goeun1001/GEmojiPicker",
+      "state" : {
+        "revision" : "eedaf51a0150fa2ba1db918589a94e4fe1e950e5",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

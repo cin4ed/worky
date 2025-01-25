@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9F62E9E52D454614000DF42D /* GEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9F62E9E42D454614000DF42D /* GEmojiPicker */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9FED1AA92D39BFA50034A601 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,12 +33,17 @@
 		9FED1AB22D39BFA50034A601 /* WorkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		9FED1A992D39BFA40034A601 /* Worky */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Worky;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9F62E9D82D436E02000DF42D /* Exceptions for "Worky" folder in "Worky" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9FED1A962D39BFA40034A601 /* Worky */;
 		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		9FED1AAB2D39BFA50034A601 /* WorkyTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WorkyTests;
@@ -45,6 +54,14 @@
 			path = WorkyUITests;
 			sourceTree = "<group>";
 		};
+		9FED1AD72D39BFB30034A601 /* Worky */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9F62E9D82D436E02000DF42D /* Exceptions for "Worky" folder in "Worky" target */,
+			);
+			path = Worky;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F62E9E52D454614000DF42D /* GEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +93,7 @@
 		9FED1A8E2D39BFA40034A601 = {
 			isa = PBXGroup;
 			children = (
-				9FED1A992D39BFA40034A601 /* Worky */,
+				9FED1AD72D39BFB30034A601 /* Worky */,
 				9FED1AAB2D39BFA50034A601 /* WorkyTests */,
 				9FED1AB52D39BFA50034A601 /* WorkyUITests */,
 				9FED1A982D39BFA40034A601 /* Products */,
@@ -108,10 +126,11 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				9FED1A992D39BFA40034A601 /* Worky */,
+				9FED1AD72D39BFB30034A601 /* Worky */,
 			);
 			name = Worky;
 			packageProductDependencies = (
+				9F62E9E42D454614000DF42D /* GEmojiPicker */,
 			);
 			productName = Worky;
 			productReference = 9FED1A972D39BFA40034A601 /* Worky.app */;
@@ -195,6 +214,9 @@
 			);
 			mainGroup = 9FED1A8E2D39BFA40034A601;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9F62E9E32D454614000DF42D /* XCRemoteSwiftPackageReference "GEmojiPicker" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9FED1A982D39BFA40034A601 /* Products */;
 			projectDirPath = "";
@@ -399,11 +421,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Worky/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.betweenframes.Worky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,11 +449,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Worky/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Worky/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.betweenframes.Worky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,6 +569,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F62E9E32D454614000DF42D /* XCRemoteSwiftPackageReference "GEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Goeun1001/GEmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F62E9E42D454614000DF42D /* GEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F62E9E32D454614000DF42D /* XCRemoteSwiftPackageReference "GEmojiPicker" */;
+			productName = GEmojiPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9FED1A8F2D39BFA40034A601 /* Project object */;
 }
