@@ -65,8 +65,6 @@ struct WorkspaceTests {
             workspaceName
         )
         
-        print(workspaceURL.absoluteString)
-        
         let validJSON = """
             {
                 "id": "3b2ac053-6c53-4c68-b6cc-728e78871854",
@@ -99,5 +97,26 @@ struct WorkspaceTests {
         #expect(throws: DecodingError.self) {
             try Workspace(from: invalidJSON)
         }
+    }
+    
+    @Test("Find workspace configuration file")
+    func testFindConfigFile() throws {
+        
+    }
+    
+    @Test("Initialization from a valid workspace directory")
+    func initFromValidWorkspaceDirectory() async throws {
+        let workspace = Workspace(
+            name: "Test Workspace",
+            emoji: "🚀"
+        )
+        
+        try workspace.saveAsJSON(
+            at: workspace.url
+        )
+        
+        let decodedWorkspace = try Workspace(from: workspace.url)
+        
+        #expect(decodedWorkspace != nil)
     }
 }
