@@ -37,3 +37,9 @@ struct WorkspaceRowView: View {
         }
     }
 }
+
+#Preview {
+    WorkspaceRowView(workspace: Workspace(name: "Testing"))
+        .padding()
+        .frame(maxWidth: 300)
+}

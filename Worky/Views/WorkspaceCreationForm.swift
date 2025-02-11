@@ -10,12 +10,12 @@ import GEmojiPicker
 
 struct WorkspaceCreationForm: View {
     
-    var onCreateWorkspace: (_ name: String, _ emoji: String) -> Void
-    var onCancel: () -> Void
+    var createCallback: (_ : String, _ : String) -> Void
+    var cancelCallback: () -> Void
     
-    init(onCreate: @escaping (_ name: String, _ emoji: String) -> Void, onCancel: @escaping () -> Void) {
-        onCreateWorkspace = onCreate
-        self.onCancel = onCancel
+    init(onCreate: @escaping (_ : String, _ : String) -> Void, onCancel: @escaping () -> Void) {
+        self.createCallback = onCreate
+        self.cancelCallback = onCancel
     }
     
     @State private var workspaceName: String = "";
@@ -26,13 +26,13 @@ struct WorkspaceCreationForm: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: onCancelCreation) {
+                Button(action: cancelCreation) {
                     Text("Cancel")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
-                Button(action: createWorkspaceHandler) {
+                Button(action: createWorkspace) {
                     Text("Create")
                         .frame(maxWidth: .infinity)
                 }
@@ -44,13 +44,13 @@ struct WorkspaceCreationForm: View {
                 Button(action: { showingEmojiPalette.toggle() }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(.secondary.opacity(0.1)) // Use .secondary directly
+                            .fill(.secondary.opacity(0.1))
                             .frame(width: 35, height: 35)
                         Text(workspaceEmoji)
                             .font(.system(size: 20))
                     }
                 }
-                .buttonStyle(.plain) // Use .plain for simple button styles
+                .buttonStyle(.plain)
                 .popover(isPresented: $showingEmojiPalette) {
                     EmojiPickerView(selectedEmoji: $workspaceEmoji)
                         .environmentObject(sharedEmojiState)
@@ -67,17 +67,13 @@ struct WorkspaceCreationForm: View {
         }
     }
     
-    private func createWorkspaceHandler() {
-        
+    private func createWorkspace() {
+        createCallback(workspaceName, workspaceEmoji)
     }
     
-    private func onCancelCreation() {
+    private func cancelCreation() {
         workspaceName = ""
         workspaceEmoji = "📦"
+        cancelCallback()
     }
 }
-
-//#Preview {
-//    WorkspaceCreationForm(onCreateWorkspace: { st, arg  in
-//    })
-//}
