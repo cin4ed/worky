@@ -9,12 +9,11 @@ import Foundation
 
 class Container {
     
-    static let shared = Container()
-
-    let directory = FileManager
-        .default
-        .homeDirectoryForCurrentUser
-        .appendingPathComponent(".worky")
+    let directory: URL
+    
+    init(directory: URL) {
+        self.directory = directory
+    }
     
     func create() {
         do {

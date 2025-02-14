@@ -24,6 +24,13 @@ struct WorkspaceRowView: View {
             Text(workspace.name).font(.body)
             Spacer()
             Text(itemCountText).font(.subheadline)
+            Menu("") {
+                Button("Edit", action: edit)
+                Button("Show in Finder", action: show)
+            }
+            .frame(maxWidth: 20)
+            .menuStyle(BorderlessButtonMenuStyle())
+            .buttonStyle(PlainButtonStyle())
         }
         .padding(.vertical, 5)
         .padding(.horizontal, 10)
@@ -35,6 +42,14 @@ struct WorkspaceRowView: View {
         .onHover { hovering in
             isHovered = hovering
         }
+    }
+    
+    func edit() {
+        
+    }
+    
+    func show() {
+        
     }
 }
 

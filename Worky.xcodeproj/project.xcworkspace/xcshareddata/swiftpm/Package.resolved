@@ -1,5 +1,5 @@
 {
-  "originHash" : "39e98dd12fe480d85f67bd7e2c8a1da6bcba5f87df1d548ff13869b4490d34ae",
+  "originHash" : "af29a6df187775090ccb5f513ad770c3d74777e837daaa9a87d37dc49e4878e4",
   "pins" : [
     {
       "identity" : "gemojipicker",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "eedaf51a0150fa2ba1db918589a94e4fe1e950e5",
         "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "sparkle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparkle-project/Sparkle",
+      "state" : {
+        "revision" : "0ef1ee0220239b3776f433314515fd849025673f",
+        "version" : "2.6.4"
       }
     }
   ],

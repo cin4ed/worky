@@ -24,9 +24,9 @@ struct ChoosableWorkspacesList: View {
     }
 }
 
-#Preview {
-    ChoosableWorkspacesList(onChoosenWorkspace: { workspace in
-        
-    }, workspaces: Container.shared.getAvailableWorkspaces())
-    .frame(maxWidth: 300)
-}
+//#Preview {
+//    ChoosableWorkspacesList(onChoosenWorkspace: { workspace in
+//        
+//    }, workspaces: Container.shared.getAvailableWorkspaces())
+//    .frame(maxWidth: 300)
+//}

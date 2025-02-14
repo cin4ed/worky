@@ -7,32 +7,29 @@
 
 import SwiftUI
 import GEmojiPicker
+import Sparkle
 
-struct PopoverView: View {
+struct MainView: View {
     
     @State private var userCreatingWorkspace = false
-    var createWorkspaceHandler: (_ name: String, _ emoji: String) -> Void
-    var chooseWorkspaceHandler: (_ workspace: Workspace) -> Void
-    var desktop = Desktop.shared
-    var container = Container.shared
     
-    init(onCreateWorkspace: @escaping (_ name: String, _ emoji: String) -> Void, onChooseWorkspace: @escaping (_ workspace: Workspace) -> Void )
-    {
-        createWorkspaceHandler = onCreateWorkspace
-        chooseWorkspaceHandler = onChooseWorkspace
+    let appController: AppController
+
+    init(_ appController: AppController) {
+        self.appController = appController
     }
     
     var body: some View {
         VStack(spacing: 10) {
             if userCreatingWorkspace {
                 WorkspaceCreationForm(
-                    onCreate: createWorkspaceHandler,
+                    onCreate: appController.createWorkspace,
                     onCancel: { userCreatingWorkspace = false }
                 )
             } else {
                 HStack {
-                    createButton
-                    settingsButton
+                    createWorkspaceButton
+                    showSettingsButton
                 }
             }
             currentWorkspaceSection
@@ -48,7 +45,7 @@ struct PopoverView: View {
         }
     }
     
-    private var createButton: some View {
+    private var createWorkspaceButton: some View {
         Button(action: { userCreatingWorkspace = true }) {
             Text("Create New")
                 .frame(maxWidth: .infinity)
@@ -57,8 +54,10 @@ struct PopoverView: View {
         .controlSize(.large)
     }
     
-    private var settingsButton: some View {
-        Button(action: { /* Add gear action */ }) {
+    private var showSettingsButton: some View {
+        Button(action: {
+            SettingsWindowController.shared.show()
+        }) {
             Image(systemName: "gear")
         }
         .controlSize(.large)
@@ -67,8 +66,8 @@ struct PopoverView: View {
     @ViewBuilder
     private var currentWorkspaceSection: some View {
         sectionHeader("CURRENT")
-        if Desktop.shared.currentWorkspace != nil {
-            WorkspaceRowView(workspace: Desktop.shared.currentWorkspace!)
+        if appController.currentWorkspace != nil {
+            WorkspaceRowView(workspace: appController.currentWorkspace!)
         }
     }
     
@@ -76,7 +75,10 @@ struct PopoverView: View {
     private var choosingWorkspaceSection: some View {
         sectionHeader("AVAILABLE")
         ScrollView(showsIndicators: false) {
-            ChoosableWorkspacesList(onChoosenWorkspace: chooseWorkspaceHandler, workspaces: container.getAvailableWorkspaces())
+            ChoosableWorkspacesList(
+                onChoosenWorkspace: appController.chooseWorkspace,
+                workspaces: appController.availableWorkspaces
+            )
         }
     }
     
@@ -88,16 +90,4 @@ struct PopoverView: View {
             Spacer()
         }
     }
-}
-
-#Preview {
-    // Create mock closures for the preview
-    PopoverView(
-        onCreateWorkspace: { name, emoji in
-            print("Creating workspace: \(name) \(emoji)")
-        },
-        onChooseWorkspace: { workspace in
-            print("Choosing workspace: \(workspace.name)")
-        }
-    )
 }

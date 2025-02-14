@@ -10,12 +10,11 @@ import Cocoa
 
 class Desktop {
     
-    static let shared = Desktop()
+    let directory: URL
     
-    let directory = FileManager
-        .default
-        .homeDirectoryForCurrentUser
-        .appendingPathComponent("Desktop")
+    init(directory: URL) {
+        self.directory = directory
+    }
     
     var currentWorkspace: Workspace? {
         guard var workspace = try? Workspace(from: self.directory) else {

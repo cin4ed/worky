@@ -11,7 +11,7 @@ import AppKit
 ///
 /// The `AppStatusButton` class provides an easy way to create a status bar button with a customizable image, action and target.
 /// It abstracts the setup of the `NSStatusItem` and its associated button, allowing you to focus on handling the button's actions.
-class AppStatusButton {
+class AppStatusBarButton {
     
     /// The underlying status bar item associated with the button.
     private var statusItem: NSStatusItem
