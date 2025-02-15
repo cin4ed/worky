@@ -1,14 +1,27 @@
 <?xml version="1.0" standalone="yes"?>
-<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
-    <channel>
-        <title>Worky</title>
-        <item>
-            <title>1.0</title>
-            <pubDate>Thu, 13 Feb 2025 23:56:37 -0700</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
-            <enclosure url="https://cin4ed.github.io/worky/releases/Worky%201.0.dmg" length="1925092" type="application/octet-stream" sparkle:edSignature="jtw7ELpCjK7/WEo4tIppdiqRejlLABawkr9vCxD4RIZxTbKSaSaHQucla7nrdASuKYceCfFLLfo20+hxxFViBw=="/>
-        </item>
-    </channel>
+<rss
+	xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+	<channel>
+		<title>Worky</title>
+		<item>
+			<sparkle:channel>beta</sparkle:channel>
+			<title>1.0.0-beta.1</title>
+			<pubDate>Sat, 15 Feb 2025 09:28:49 -0700</pubDate>
+			<sparkle:version>100.1</sparkle:version>
+			<sparkle:shortVersionString>1.0.0-beta.1</sparkle:shortVersionString>
+			<sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
+			<description>
+				<![CDATA[<h1>Worky Release Notes</h1><h2>Worky 0.1.0-beta.1</h2><h3>Features</h3><ul><li><strong>Create workspaces</strong> to separate and organize your projects.
+  </li><li><strong>Choose an emoji</strong> for each workspace to quickly identify them
+    at a glance.
+  </li><li><strong>Add files</strong> to different workspaces for easy access and
+    better organization.
+  </li><li><strong>Seamlessly switch between workspaces</strong> to stay focused on
+    what matters.
+  </li></ul>
+]]>
+			</description>
+			<enclosure url="https://cin4ed.github.io/worky/Worky%201.0.0-beta.1.dmg" length="1925195" type="application/octet-stream" sparkle:edSignature="wBB0faB1Shclm0m1IcfUmIOkR+UbhWc2jiOUP0J6P37ELYJ6gTvSG1wlWRw1Ci8nw8vhQfQa92IYEZhONf9cBA=="/>
+		</item>
+	</channel>
 </rss>
