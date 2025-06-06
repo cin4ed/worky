@@ -11,7 +11,9 @@ import SwiftUI
 struct WorkspaceRowView: View {
     
     var workspace: Workspace
+    var onUpdate: ((_ newName: String, _ newEmoji: String) -> Void)? = nil
     @State private var isHovered = false
+    @State private var isEditing = false
     
     private var itemCountText: String {
         let count = workspace.itemCount
@@ -42,10 +44,25 @@ struct WorkspaceRowView: View {
         .onHover { hovering in
             isHovered = hovering
         }
+        .sheet(isPresented: $isEditing) {
+            WorkspaceEditForm(
+                initialName: workspace.name,
+                initialEmoji: workspace.emoji,
+                onSave: { newName, newEmoji in
+                    onUpdate?(newName, newEmoji)
+                    isEditing = false
+                },
+                onCancel: {
+                    isEditing = false
+                }
+            )
+            .padding()
+            .frame(width: 350)
+        }
     }
     
     func edit() {
-        
+        isEditing = true
     }
     
     func show() {

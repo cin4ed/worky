@@ -90,6 +90,7 @@ class AppController {
     
     func chooseWorkspace(_ workspace: Workspace) {
         
+        // If the workspace is already the current workspace, do nothing
         if desktop.currentWorkspace == workspace {
             return
         }

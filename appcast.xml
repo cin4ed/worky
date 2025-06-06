@@ -1,27 +1,72 @@
 <?xml version="1.0" standalone="yes"?>
-<rss
-	xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
-	<channel>
-		<title>Worky</title>
-		<item>
-			<sparkle:channel>beta</sparkle:channel>
-			<title>1.0.0-beta.1</title>
-			<pubDate>Sat, 15 Feb 2025 09:28:49 -0700</pubDate>
-			<sparkle:version>100.1</sparkle:version>
-			<sparkle:shortVersionString>1.0.0-beta.1</sparkle:shortVersionString>
-			<sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
-			<description>
-				<![CDATA[<h1>Worky Release Notes</h1><h2>Worky 0.1.0-beta.1</h2><h3>Features</h3><ul><li><strong>Create workspaces</strong> to separate and organize your projects.
-  </li><li><strong>Choose an emoji</strong> for each workspace to quickly identify them
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Worky</title>
+        <item>
+            <title>1.0.0-beta.2</title>
+            <pubDate>Thu, 05 Jun 2025 14:43:51 -0700</pubDate>
+            <sparkle:version>100.2</sparkle:version>
+            <sparkle:shortVersionString>1.0.0-beta.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h1>Worky Release Notes</h1>
+<h2>Worky 0.1.0-beta.3</h2>
+<h3>Features</h3>
+<ul>
+  <li>
+    <strong>Edit workspace name and emoji</strong> directly from the workspace
+    menu, with a modern edit form.
+  </li>
+  <li>
+    <strong>Workspace directory renaming</strong>: When you rename a workspace,
+    its folder is also renamed to match.
+  </li>
+  <li>
+    <strong>Instant UI update</strong>: Workspace changes are reflected
+    immediately after editing, no need to reopen the app popup.
+  </li>
+  <li>
+    <strong>Keyboard shortcuts</strong>: Press <kbd>Enter</kbd> to save and
+    <kbd>Escape</kbd> to cancel when editing a workspace.
+  </li>
+  <li>
+    <strong>Auto-focus</strong> on the name field when editing a workspace for a
+    faster workflow.
+  </li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.2/Worky.1.0.0-beta.2.dmg" length="1945611" type="application/octet-stream" sparkle:edSignature="kMvfr1BkbZ86y8+Fy+SQePYSauNkxCNF3GKrH7Wn8ZICyw3VIK6thR+bj8hB1HCVa9C/czDmV5XGjW0nWspVBQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.2/Worky100.2-100.1.delta" sparkle:deltaFrom="100.1" length="77742" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="864752" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="2jNyRFHMgxMNLQjXRxLMmr09qgf7pfjOeoO12X3hq3nRdmR+JPK9GkgJTGVmVJFftpKjP+5Tu9pQkBZGwxh5Dw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.0.0-beta.1</title>
+            <pubDate>Sat, 15 Feb 2025 09:28:49 -0700</pubDate>
+            <sparkle:version>100.1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0-beta.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h1>Worky Release Notes</h1>
+<h2>Worky 0.1.0-beta.1</h2>
+<h3>Features</h3>
+<ul>
+  <li>
+    <strong>Create workspaces</strong> to separate and organize your projects.
+  </li>
+  <li>
+    <strong>Choose an emoji</strong> for each workspace to quickly identify them
     at a glance.
-  </li><li><strong>Add files</strong> to different workspaces for easy access and
+  </li>
+  <li>
+    <strong>Add files</strong> to different workspaces for easy access and
     better organization.
-  </li><li><strong>Seamlessly switch between workspaces</strong> to stay focused on
+  </li>
+  <li>
+    <strong>Seamlessly switch between workspaces</strong> to stay focused on
     what matters.
-  </li></ul>
-]]>
-			</description>
-			<enclosure url="https://cin4ed.github.io/worky/Worky%201.0.0-beta.1.dmg" length="1925195" type="application/octet-stream" sparkle:edSignature="wBB0faB1Shclm0m1IcfUmIOkR+UbhWc2jiOUP0J6P37ELYJ6gTvSG1wlWRw1Ci8nw8vhQfQa92IYEZhONf9cBA=="/>
-		</item>
-	</channel>
+  </li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.1/Worky.dmg" length="1925195" type="application/octet-stream" sparkle:edSignature="wBB0faB1Shclm0m1IcfUmIOkR+UbhWc2jiOUP0J6P37ELYJ6gTvSG1wlWRw1Ci8nw8vhQfQa92IYEZhONf9cBA=="/>
+        </item>
+    </channel>
 </rss>

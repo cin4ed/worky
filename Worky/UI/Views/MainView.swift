@@ -12,7 +12,8 @@ import Sparkle
 struct MainView: View {
     
     @State private var userCreatingWorkspace = false
-    
+    @State private var availableWorkspaces: [Workspace] = []
+    @State private var currentWorkspace: Workspace? = nil
     let appController: AppController
 
     init(_ appController: AppController) {
@@ -35,7 +36,11 @@ struct MainView: View {
             currentWorkspaceSection
             choosingWorkspaceSection
         }
-        .onAppear(perform: clearFocus)
+        .onAppear(perform: {
+            clearFocus()
+            availableWorkspaces = appController.availableWorkspaces
+            currentWorkspace = appController.currentWorkspace
+        })
         .padding(10)
     }
     
@@ -66,8 +71,28 @@ struct MainView: View {
     @ViewBuilder
     private var currentWorkspaceSection: some View {
         sectionHeader("CURRENT")
-        if appController.currentWorkspace != nil {
-            WorkspaceRowView(workspace: appController.currentWorkspace!)
+        if let current = currentWorkspace {
+            WorkspaceRowView(
+                workspace: current,
+                onUpdate: { newName, newEmoji in
+                    var updated = current
+                    // Rename the directory in the container if it exists
+                    if let oldDir = updated.directory, appController.container.directoryExists(oldDir) {
+                        let parentDir = oldDir.deletingLastPathComponent()
+                        if newName != updated.name {
+                            try? updated.renameDirectory(to: newName, in: parentDir)
+                        }
+                    }
+                    updated.name = newName
+                    updated.emoji = newEmoji
+                    // Always save to the desktop directory
+                    try? updated.saveAsJSON(at: appController.desktop.directory)
+                    // Refresh available workspaces list
+                    availableWorkspaces = appController.availableWorkspaces
+                    // Refresh current workspace
+                    currentWorkspace = appController.currentWorkspace
+                }
+            )
         }
     }
     
@@ -77,7 +102,23 @@ struct MainView: View {
         ScrollView(showsIndicators: false) {
             ChoosableWorkspacesList(
                 onChoosenWorkspace: appController.chooseWorkspace,
-                workspaces: appController.availableWorkspaces
+                workspaces: availableWorkspaces,
+                onUpdateWorkspace: { oldWorkspace, newName, newEmoji in
+                    // Update the workspace in the array
+                    guard let idx = availableWorkspaces.firstIndex(where: { $0.id == oldWorkspace.id }) else { return }
+                    var updated = oldWorkspace
+                    // If the name changed, rename the directory
+                    if newName != oldWorkspace.name, let parentDir = oldWorkspace.directory?.deletingLastPathComponent() {
+                        try? updated.renameDirectory(to: newName, in: parentDir)
+                    }
+                    updated.name = newName
+                    updated.emoji = newEmoji
+                    availableWorkspaces[idx] = updated
+                    // Persist changes
+                    if let dir = updated.directory {
+                        try? updated.saveAsJSON(at: dir)
+                    }
+                }
             )
         }
     }

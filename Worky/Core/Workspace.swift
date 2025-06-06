@@ -56,6 +56,15 @@ struct Workspace: Identifiable, Equatable, Encodable, Decodable {
             try FileManager.default.moveItem(at: url, to: newLocation.appendingPathComponent(url.lastPathComponent))
         }
     }
+
+    mutating func renameDirectory(to newName: String, in parentDirectory: URL) throws {
+        guard let currentDirectory = self.directory else { return }
+        let newDirectory = parentDirectory.appendingPathComponent(newName)
+        if currentDirectory != newDirectory {
+            try FileManager.default.moveItem(at: currentDirectory, to: newDirectory)
+            self.directory = newDirectory
+        }
+    }
 }
 
 extension Workspace {
