@@ -3,13 +3,36 @@
     <channel>
         <title>Worky</title>
         <item>
+            <title>1.0.0-beta.3</title>
+            <pubDate>Sat, 07 Jun 2025 01:33:59 -0700</pubDate>
+            <sparkle:version>100.3</sparkle:version>
+            <sparkle:shortVersionString>1.0.0-beta.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h1>Worky Release Notes</h1>
+<h2>Worky 0.1.0-beta.3</h2>
+<h3>Features</h3>
+<ul>
+  <li>
+    <strong>Reveal in Finder</strong>: Instantly open any available workspace's
+    folder in Finder from the context menu. (This option is hidden for the
+    current workspace.)
+  </li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.3/Worky.1.0.0-beta.3.dmg" length="1946559" type="application/octet-stream" sparkle:edSignature="M+yp6a92iDKNYxT0qua8L+WYF2GtyZlY45BPCHik3/PtYZDF1ZsbZ1LH/QTu60viSkygFaSkgwohYxEDEJHJAg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.3/Worky100.3-100.2.delta" sparkle:deltaFrom="100.2" length="34422" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="864752" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="4bKRKARXYtyuJSGBbvoqk44iVKXv/GwHtLmCjOJ9A7R8cp90qrm92nhnd+sgusVUKzpCLZolnAI50atwhDHSAg=="/>
+                <enclosure url="https://github.com/cin4ed/worky/releases/download/v1.0.0-beta.3/Worky100.3-100.1.delta" sparkle:deltaFrom="100.1" length="80042" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="864752" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="ANgkO9/jUbMZ5OFKKjbZIGqYQyvsPRyfaQ2CJn1qiO+a9Xv5xuKpYhgyHIMrLN4Mc3E0vhKAi4TA7nmVNfILAQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.0-beta.2</title>
             <pubDate>Thu, 05 Jun 2025 14:43:51 -0700</pubDate>
             <sparkle:version>100.2</sparkle:version>
             <sparkle:shortVersionString>1.0.0-beta.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>12.4</sparkle:minimumSystemVersion>
             <description><![CDATA[<h1>Worky Release Notes</h1>
-<h2>Worky 0.1.0-beta.3</h2>
+<h2>Worky 0.1.0-beta.2</h2>
 <h3>Features</h3>
 <ul>
   <li>

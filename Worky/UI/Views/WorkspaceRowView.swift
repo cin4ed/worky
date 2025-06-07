@@ -11,6 +11,7 @@ import SwiftUI
 struct WorkspaceRowView: View {
     
     var workspace: Workspace
+    var isCurrent: Bool = false
     var onUpdate: ((_ newName: String, _ newEmoji: String) -> Void)? = nil
     @State private var isHovered = false
     @State private var isEditing = false
@@ -28,7 +29,9 @@ struct WorkspaceRowView: View {
             Text(itemCountText).font(.subheadline)
             Menu("") {
                 Button("Edit", action: edit)
-                Button("Show in Finder", action: show)
+                if !isCurrent {
+                    Button("Reveal in Finder", action: revealInFinder)
+                }
             }
             .frame(maxWidth: 20)
             .menuStyle(BorderlessButtonMenuStyle())
@@ -65,8 +68,9 @@ struct WorkspaceRowView: View {
         isEditing = true
     }
     
-    func show() {
-        
+    func revealInFinder() {
+        guard let url = workspace.directory else { return }
+        NSWorkspace.shared.activateFileViewerSelecting([url])
     }
 }
 

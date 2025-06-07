@@ -18,6 +18,7 @@ struct ChoosableWorkspacesList: View {
             ForEach(Array(workspaces.enumerated()), id: \.element.id) { index, workspace in
                 WorkspaceRowView(
                     workspace: workspace,
+                    isCurrent: false,
                     onUpdate: { newName, newEmoji in
                         onUpdateWorkspace(workspace, newName, newEmoji)
                     }

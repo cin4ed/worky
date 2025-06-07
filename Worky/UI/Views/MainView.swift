@@ -74,6 +74,7 @@ struct MainView: View {
         if let current = currentWorkspace {
             WorkspaceRowView(
                 workspace: current,
+                isCurrent: true,
                 onUpdate: { newName, newEmoji in
                     var updated = current
                     // Rename the directory in the container if it exists
